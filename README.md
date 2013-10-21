@@ -26,3 +26,21 @@ Just for fun, on one of those late night hungers you get for knowledge / ideas (
 ## Other views = Maybes / toDos
 * Show user's favorites on SC
 
+# Deprecation Fixes to standard APIs
+## JSONKit : 
+* replace " object->isa " by  " object_getClass(object) " since direct access to isa is deprecated
+* ignore the " bitmasking is discouraged "
+
+## SoundCloudUI :
+* change ''' - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
+ ''' to ''' - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations '''
+* change UILineBreakModeWordWrap to NSLineBreakByWordWrapping
+* change ''' [addCustomLink:[NSURL URLWithString:kTermsOfServiceURL] inRange:touLinkRange]; ''' to ''' setLink:[NSURL URLWithString:kTermsOfServiceURL]
+                         range:touLinkRange]; ''' (same for privacy policy)
+* change ''' [self.navigationController presentModalViewController:controller animated:YES]; ''' to ''' [self.navigationController presentViewController:controller animated:YES completion:nil]; ''' (equivalent changes to dismissModalViewController)
+* change all text alignments from UIText(...) to NSText(...)
+
+A couple more coming
+
+
+

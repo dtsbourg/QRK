@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B140AFDEA74C5982DA4003 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 885CEE6E5C85475082B3F0D0 /* libPods.a */; };
+		FC23D2DC181442F600C23DEE /* quark_up.png in Resources */ = {isa = PBXBuildFile; fileRef = FC23D2DB181442F600C23DEE /* quark_up.png */; };
+		FC23D2E3181443BF00C23DEE /* QUP_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FC23D2E2181443BF00C23DEE /* QUP_icon.png */; };
+		FC23D2E51814444F00C23DEE /* quark_up_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = FC23D2E41814444F00C23DEE /* quark_up_launch.png */; };
 		FCA30561180C9AC3001C5EE8 /* SoundCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */; };
 		FCA30565180C9C2D001C5EE8 /* SCTTrackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA30563180C9C2D001C5EE8 /* SCTTrackListViewController.m */; };
 		FCA30566180C9C2D001C5EE8 /* SCTTrackListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA30564180C9C2D001C5EE8 /* SCTTrackListViewController.xib */; };
@@ -52,11 +56,6 @@
 		FCFA3B30180C98D900484DE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B12180C98D800484DE4 /* UIKit.framework */; };
 		FCFA3B38180C98D900484DE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCFA3B36180C98D900484DE4 /* InfoPlist.strings */; };
 		FCFA3B3A180C98D900484DE4 /* QrkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA3B39180C98D900484DE4 /* QrkTests.m */; };
-		FCFA3B77180C9A4400484DE4 /* libJSONKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B5B180C999500484DE4 /* libJSONKit.a */; };
-		FCFA3B78180C9A4400484DE4 /* libOAuth2Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B66180C999E00484DE4 /* libOAuth2Client.a */; };
-		FCFA3B79180C9A4400484DE4 /* libOHAttributedLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B6C180C99A800484DE4 /* libOHAttributedLabel.a */; };
-		FCFA3B7A180C9A4400484DE4 /* libSoundCloudAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B4B180C995A00484DE4 /* libSoundCloudAPI.a */; };
-		FCFA3B7B180C9A4400484DE4 /* libSoundCloudUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B52180C997F00484DE4 /* libSoundCloudUI.a */; };
 		FCFA3B82180C9A4400484DE4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B7C180C9A4400484DE4 /* AddressBook.framework */; };
 		FCFA3B83180C9A4400484DE4 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B7D180C9A4400484DE4 /* AddressBookUI.framework */; };
 		FCFA3B84180C9A4400484DE4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B7E180C9A4400484DE4 /* CoreLocation.framework */; };
@@ -73,107 +72,14 @@
 			remoteGlobalIDString = FCFA3B0A180C98D800484DE4;
 			remoteInfo = Qrk;
 		};
-		FCFA3B48180C995A00484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B43180C995A00484DE4 /* SoundCloudAPI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 94535F86123FAFDF00BD668A;
-			remoteInfo = SoundCloudAPI.framework;
-		};
-		FCFA3B4A180C995A00484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B43180C995A00484DE4 /* SoundCloudAPI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = SoundCloudAPI;
-		};
-		FCFA3B51180C997F00484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B4C180C997F00484DE4 /* SoundCloudUI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F6EF8C6113F929D700B20B40;
-			remoteInfo = libSoundCloudUI;
-		};
-		FCFA3B53180C997F00484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B4C180C997F00484DE4 /* SoundCloudUI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F62E0CE5148FB27100BE8F14;
-			remoteInfo = SoundCloudUI.framework;
-		};
-		FCFA3B5A180C999500484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B55180C999500484DE4 /* JSONKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F6803523148F6D22008A51BA;
-			remoteInfo = libJSONKit;
-		};
-		FCFA3B5C180C999500484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B55180C999500484DE4 /* JSONKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F6AE0202148F825C0004909F;
-			remoteInfo = JSONKit.framework;
-		};
-		FCFA3B63180C999E00484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B5E180C999E00484DE4 /* OAuth2Client.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 942FFCD612315E0A00E6C65E;
-			remoteInfo = OAuth2Client.framework;
-		};
-		FCFA3B65180C999E00484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B5E180C999E00484DE4 /* OAuth2Client.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = OAuth2Client;
-		};
-		FCFA3B6B180C99A800484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B67180C99A800484DE4 /* OHAttributedLabel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F62728FA148F70DF00314599;
-			remoteInfo = OHAttributedLabel;
-		};
-		FCFA3B6D180C9A1000484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B67180C99A800484DE4 /* OHAttributedLabel.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F62728F9148F70DF00314599;
-			remoteInfo = OHAttributedLabel;
-		};
-		FCFA3B6F180C9A1000484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B5E180C999E00484DE4 /* OAuth2Client.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = OAuth2Client;
-		};
-		FCFA3B71180C9A1000484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B55180C999500484DE4 /* JSONKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F6803522148F6D22008A51BA;
-			remoteInfo = libJSONKit;
-		};
-		FCFA3B73180C9A1000484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B4C180C997F00484DE4 /* SoundCloudUI.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F6EF8C6013F929D700B20B40;
-			remoteInfo = libSoundCloudUI;
-		};
-		FCFA3B75180C9A1000484DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCFA3B43180C995A00484DE4 /* SoundCloudAPI.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = SoundCloudAPI;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		885CEE6E5C85475082B3F0D0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2DB17C79AD4BBE8C326A2B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FC23D2DB181442F600C23DEE /* quark_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quark_up.png; path = ../quark_up.png; sourceTree = "<group>"; };
+		FC23D2E2181443BF00C23DEE /* QUP_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QUP_icon.png; path = ../QUP_icon.png; sourceTree = "<group>"; };
+		FC23D2E41814444F00C23DEE /* quark_up_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quark_up_launch.png; path = ../quark_up_launch.png; sourceTree = "<group>"; };
 		FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SoundCloud.bundle; sourceTree = "<group>"; };
 		FCA30562180C9C2D001C5EE8 /* SCTTrackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTrackListViewController.h; sourceTree = "<group>"; };
 		FCA30563180C9C2D001C5EE8 /* SCTTrackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTTrackListViewController.m; sourceTree = "<group>"; };
@@ -227,11 +133,6 @@
 		FCFA3B35180C98D900484DE4 /* QrkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QrkTests-Info.plist"; sourceTree = "<group>"; };
 		FCFA3B37180C98D900484DE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCFA3B39180C98D900484DE4 /* QrkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QrkTests.m; sourceTree = "<group>"; };
-		FCFA3B43180C995A00484DE4 /* SoundCloudAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudAPI.xcodeproj; path = "CocoaSoundCloudAPI-master/SoundCloudAPI.xcodeproj"; sourceTree = "<group>"; };
-		FCFA3B4C180C997F00484DE4 /* SoundCloudUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudUI.xcodeproj; path = "CocoaSoundCloudUI-master/SoundCloudUI.xcodeproj"; sourceTree = "<group>"; };
-		FCFA3B55180C999500484DE4 /* JSONKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSONKit.xcodeproj; path = "JSONKit-master/JSONKit.xcodeproj"; sourceTree = "<group>"; };
-		FCFA3B5E180C999E00484DE4 /* OAuth2Client.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuth2Client.xcodeproj; path = "OAuth2Client-master/OAuth2Client.xcodeproj"; sourceTree = "<group>"; };
-		FCFA3B67180C99A800484DE4 /* OHAttributedLabel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OHAttributedLabel.xcodeproj; path = "OHAttributedLabel-master/OHAttributedLabel.xcodeproj"; sourceTree = "<group>"; };
 		FCFA3B7C180C9A4400484DE4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FCFA3B7D180C9A4400484DE4 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		FCFA3B7E180C9A4400484DE4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -252,14 +153,10 @@
 				FCFA3B85180C9A4400484DE4 /* CoreText.framework in Frameworks */,
 				FCFA3B86180C9A4400484DE4 /* QuartzCore.framework in Frameworks */,
 				FCFA3B87180C9A4400484DE4 /* Security.framework in Frameworks */,
-				FCFA3B77180C9A4400484DE4 /* libJSONKit.a in Frameworks */,
-				FCFA3B78180C9A4400484DE4 /* libOAuth2Client.a in Frameworks */,
-				FCFA3B79180C9A4400484DE4 /* libOHAttributedLabel.a in Frameworks */,
-				FCFA3B7A180C9A4400484DE4 /* libSoundCloudAPI.a in Frameworks */,
-				FCFA3B7B180C9A4400484DE4 /* libSoundCloudUI.a in Frameworks */,
 				FCFA3B11180C98D800484DE4 /* CoreGraphics.framework in Frameworks */,
 				FCFA3B13180C98D800484DE4 /* UIKit.framework in Frameworks */,
 				FCFA3B0F180C98D800484DE4 /* Foundation.framework in Frameworks */,
+				00B140AFDEA74C5982DA4003 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +173,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC23D2E11814431200C23DEE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FC23D2E2181443BF00C23DEE /* QUP_icon.png */,
+				FCA305B1181037FF001C5EE8 /* jorisd.png */,
+				FC23D2DB181442F600C23DEE /* quark_up.png */,
+				FCA3059B180F13DF001C5EE8 /* QUP.png */,
+				FC23D2E41814444F00C23DEE /* quark_up_launch.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		FCA3056F180DDC07001C5EE8 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,15 +216,11 @@
 		FCFA3B02180C98D800484DE4 = {
 			isa = PBXGroup;
 			children = (
-				FCFA3B67180C99A800484DE4 /* OHAttributedLabel.xcodeproj */,
-				FCFA3B5E180C999E00484DE4 /* OAuth2Client.xcodeproj */,
-				FCFA3B55180C999500484DE4 /* JSONKit.xcodeproj */,
-				FCFA3B4C180C997F00484DE4 /* SoundCloudUI.xcodeproj */,
-				FCFA3B43180C995A00484DE4 /* SoundCloudAPI.xcodeproj */,
 				FCFA3B14180C98D800484DE4 /* Qrk */,
 				FCFA3B33180C98D900484DE4 /* QrkTests */,
 				FCFA3B0D180C98D800484DE4 /* Frameworks */,
 				FCFA3B0C180C98D800484DE4 /* Products */,
+				DD2DB17C79AD4BBE8C326A2B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -342,6 +247,7 @@
 				FCFA3B10180C98D800484DE4 /* CoreGraphics.framework */,
 				FCFA3B12180C98D800484DE4 /* UIKit.framework */,
 				FCFA3B2D180C98D800484DE4 /* XCTest.framework */,
+				885CEE6E5C85475082B3F0D0 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -355,7 +261,6 @@
 				FCFA3B20180C98D800484DE4 /* Main.storyboard */,
 				FCA305A6181004B6001C5EE8 /* SCTFeedViewController.h */,
 				FCA305A7181004B6001C5EE8 /* SCTFeedViewController.m */,
-				FCA305B1181037FF001C5EE8 /* jorisd.png */,
 				FCA305A3181000FD001C5EE8 /* SCTViewCell.h */,
 				FCA305A4181000FD001C5EE8 /* SCTViewCell.m */,
 				FCA305A1181000EE001C5EE8 /* SCTViewCell.xib */,
@@ -365,7 +270,7 @@
 				FCA30562180C9C2D001C5EE8 /* SCTTrackListViewController.h */,
 				FCA30563180C9C2D001C5EE8 /* SCTTrackListViewController.m */,
 				FCA30564180C9C2D001C5EE8 /* SCTTrackListViewController.xib */,
-				FCA3059B180F13DF001C5EE8 /* QUP.png */,
+				FC23D2E11814431200C23DEE /* Images */,
 				FCA3056F180DDC07001C5EE8 /* Buttons */,
 				FCFA3B26180C98D800484DE4 /* Images.xcassets */,
 				FCFA3B15180C98D800484DE4 /* Supporting Files */,
@@ -402,50 +307,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FCFA3B44180C995A00484DE4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FCFA3B49180C995A00484DE4 /* SoundCloudAPI.framework */,
-				FCFA3B4B180C995A00484DE4 /* libSoundCloudAPI.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FCFA3B4D180C997F00484DE4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FCFA3B52180C997F00484DE4 /* libSoundCloudUI.a */,
-				FCFA3B54180C997F00484DE4 /* SoundCloudUI.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FCFA3B56180C999500484DE4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FCFA3B5B180C999500484DE4 /* libJSONKit.a */,
-				FCFA3B5D180C999500484DE4 /* JSONKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FCFA3B5F180C999E00484DE4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FCFA3B64180C999E00484DE4 /* OAuth2Client.framework */,
-				FCFA3B66180C999E00484DE4 /* libOAuth2Client.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FCFA3B68180C99A800484DE4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FCFA3B6C180C99A800484DE4 /* libOHAttributedLabel.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -453,18 +314,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCFA3B3D180C98D900484DE4 /* Build configuration list for PBXNativeTarget "Qrk" */;
 			buildPhases = (
+				4A598242199E4F8392492EF0 /* Check Pods Manifest.lock */,
 				FCFA3B07180C98D800484DE4 /* Sources */,
 				FCFA3B08180C98D800484DE4 /* Frameworks */,
 				FCFA3B09180C98D800484DE4 /* Resources */,
+				AA61798CD3D4411FBCAC4AC9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FCFA3B6E180C9A1000484DE4 /* PBXTargetDependency */,
-				FCFA3B70180C9A1000484DE4 /* PBXTargetDependency */,
-				FCFA3B72180C9A1000484DE4 /* PBXTargetDependency */,
-				FCFA3B74180C9A1000484DE4 /* PBXTargetDependency */,
-				FCFA3B76180C9A1000484DE4 /* PBXTargetDependency */,
 			);
 			name = Qrk;
 			productName = Qrk;
@@ -515,28 +373,6 @@
 			mainGroup = FCFA3B02180C98D800484DE4;
 			productRefGroup = FCFA3B0C180C98D800484DE4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FCFA3B56180C999500484DE4 /* Products */;
-					ProjectRef = FCFA3B55180C999500484DE4 /* JSONKit.xcodeproj */;
-				},
-				{
-					ProductGroup = FCFA3B5F180C999E00484DE4 /* Products */;
-					ProjectRef = FCFA3B5E180C999E00484DE4 /* OAuth2Client.xcodeproj */;
-				},
-				{
-					ProductGroup = FCFA3B68180C99A800484DE4 /* Products */;
-					ProjectRef = FCFA3B67180C99A800484DE4 /* OHAttributedLabel.xcodeproj */;
-				},
-				{
-					ProductGroup = FCFA3B44180C995A00484DE4 /* Products */;
-					ProjectRef = FCFA3B43180C995A00484DE4 /* SoundCloudAPI.xcodeproj */;
-				},
-				{
-					ProductGroup = FCFA3B4D180C997F00484DE4 /* Products */;
-					ProjectRef = FCFA3B4C180C997F00484DE4 /* SoundCloudUI.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FCFA3B0A180C98D800484DE4 /* Qrk */,
@@ -544,72 +380,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FCFA3B49180C995A00484DE4 /* SoundCloudAPI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SoundCloudAPI.framework;
-			remoteRef = FCFA3B48180C995A00484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B4B180C995A00484DE4 /* libSoundCloudAPI.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSoundCloudAPI.a;
-			remoteRef = FCFA3B4A180C995A00484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B52180C997F00484DE4 /* libSoundCloudUI.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSoundCloudUI.a;
-			remoteRef = FCFA3B51180C997F00484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B54180C997F00484DE4 /* SoundCloudUI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SoundCloudUI.framework;
-			remoteRef = FCFA3B53180C997F00484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B5B180C999500484DE4 /* libJSONKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJSONKit.a;
-			remoteRef = FCFA3B5A180C999500484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B5D180C999500484DE4 /* JSONKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = JSONKit.framework;
-			remoteRef = FCFA3B5C180C999500484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B64180C999E00484DE4 /* OAuth2Client.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OAuth2Client.framework;
-			remoteRef = FCFA3B63180C999E00484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B66180C999E00484DE4 /* libOAuth2Client.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libOAuth2Client.a;
-			remoteRef = FCFA3B65180C999E00484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCFA3B6C180C99A800484DE4 /* libOHAttributedLabel.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libOHAttributedLabel.a;
-			remoteRef = FCFA3B6B180C99A800484DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FCFA3B09180C98D800484DE4 /* Resources */ = {
@@ -626,8 +396,10 @@
 				FCA30585180DDCB7001C5EE8 /* 77-ekg.png in Resources */,
 				FCA3056A180DA9F9001C5EE8 /* SCTTrackCell.xib in Resources */,
 				FCA305B2181037FF001C5EE8 /* jorisd.png in Resources */,
+				FC23D2E51814444F00C23DEE /* quark_up_launch.png in Resources */,
 				FCA3056C180DDBE5001C5EE8 /* 14-tag.png in Resources */,
 				FCA3058C180DDCE9001C5EE8 /* 111-user.png in Resources */,
+				FC23D2DC181442F600C23DEE /* quark_up.png in Resources */,
 				FCA30587180DDCBF001C5EE8 /* 78-stopwatch.png in Resources */,
 				FCA3059C180F13DF001C5EE8 /* QUP.png in Resources */,
 				FCA30561180C9AC3001C5EE8 /* SoundCloud.bundle in Resources */,
@@ -644,6 +416,7 @@
 				FCA30581180DDC70001C5EE8 /* 29-heart.png in Resources */,
 				FCFA3B22180C98D800484DE4 /* Main.storyboard in Resources */,
 				FCA30583180DDC97001C5EE8 /* 58-bookmark.png in Resources */,
+				FC23D2E3181443BF00C23DEE /* QUP_icon.png in Resources */,
 				FCA30580180DDC70001C5EE8 /* 28-star.png in Resources */,
 				FCA3058D180DDCE9001C5EE8 /* 112-group.png in Resources */,
 			);
@@ -658,6 +431,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A598242199E4F8392492EF0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA61798CD3D4411FBCAC4AC9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCFA3B07180C98D800484DE4 /* Sources */ = {
@@ -688,31 +494,6 @@
 			isa = PBXTargetDependency;
 			target = FCFA3B0A180C98D800484DE4 /* Qrk */;
 			targetProxy = FCFA3B31180C98D900484DE4 /* PBXContainerItemProxy */;
-		};
-		FCFA3B6E180C9A1000484DE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OHAttributedLabel;
-			targetProxy = FCFA3B6D180C9A1000484DE4 /* PBXContainerItemProxy */;
-		};
-		FCFA3B70180C9A1000484DE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OAuth2Client;
-			targetProxy = FCFA3B6F180C9A1000484DE4 /* PBXContainerItemProxy */;
-		};
-		FCFA3B72180C9A1000484DE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = libJSONKit;
-			targetProxy = FCFA3B71180C9A1000484DE4 /* PBXContainerItemProxy */;
-		};
-		FCFA3B74180C9A1000484DE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = libSoundCloudUI;
-			targetProxy = FCFA3B73180C9A1000484DE4 /* PBXContainerItemProxy */;
-		};
-		FCFA3B76180C9A1000484DE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SoundCloudAPI;
-			targetProxy = FCFA3B75180C9A1000484DE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -818,6 +599,7 @@
 		};
 		FCFA3B3E180C98D900484DE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD2DB17C79AD4BBE8C326A2B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -829,17 +611,20 @@
 					"$PROJECT_DIR/**",
 				);
 				INFOPLIST_FILE = "Qrk/Qrk-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		FCFA3B3F180C98D900484DE4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD2DB17C79AD4BBE8C326A2B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -851,11 +636,13 @@
 					"$PROJECT_DIR/**",
 				);
 				INFOPLIST_FILE = "Qrk/Qrk-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

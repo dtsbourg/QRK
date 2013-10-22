@@ -1,13 +1,11 @@
+<<<<<<< HEAD
 QRK
 ===
 
 [PoC] Music blogging project
 
-QRK
-===
-
-[PoC] Music blogging project
-
+=======
+>>>>>>> b56d06492b764d4c2b40fed376438e5180eb6ee4
 
 
 # Welcome
@@ -48,3 +46,8 @@ Just for fun, on one of those late night hungers you get for knowledge / ideas (
 
 A couple more coming
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b56d06492b764d4c2b40fed376438e5180eb6ee4

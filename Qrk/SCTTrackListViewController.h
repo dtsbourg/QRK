@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVAudioPlayer.h>
 
 @interface SCTTrackListViewController : UITableViewController <AVAudioPlayerDelegate>
 
-@property (nonatomic, strong) NSArray *tracks;
-@property (nonatomic, strong) AVAudioPlayer *player;
+@property (strong, nonatomic) NSArray *tracks;
+@property (strong, nonatomic) AVAudioPlayer* player;
 
 @end

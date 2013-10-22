@@ -24,7 +24,7 @@ typedef void(^SCRequestResponseHandler)(NSURLResponse *response, NSData *respons
 typedef void(^SCRequestSendingProgressHandler)(unsigned long long bytesSend, unsigned long long bytesTotal);
 
 enum SCRequestMethod {
-    SCRequestMethodGET = 0,
+    SCRequestMethodGET=0,
     SCRequestMethodPOST,
     SCRequestMethodPUT,
     SCRequestMethodDELETE,

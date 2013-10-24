@@ -72,6 +72,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    player=[[AVAudioPlayer alloc]init];
+    
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     self.navigationController.navigationBar.translucent=NO;
     self.navigationController.navigationBar.opaque=YES;

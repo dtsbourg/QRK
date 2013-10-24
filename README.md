@@ -1,13 +1,10 @@
-QRK
-===
-
-[PoC] Music blogging project
 
 QRK
 ===
 
 [PoC] Music blogging project
 
+===
 
 
 # Welcome

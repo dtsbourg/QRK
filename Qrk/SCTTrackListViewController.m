@@ -181,7 +181,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
       sendingProgressHandler:nil
              responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                  dispatch_async(dispatch_get_main_queue(), ^{
-                     NSError *playerError;
+                    NSError *playerError;
                      player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                      [player prepareToPlay];
                      [player play];

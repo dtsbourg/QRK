@@ -180,12 +180,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                  withAccount:account
       sendingProgressHandler:nil
              responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 NSError *playerError;
-                 player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
-                 [player prepareToPlay];
-                 [player play];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     NSError *playerError;
+                     player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
+                     [player prepareToPlay];
+                     [player play];
+                 });
              }];
 
+}
+
+- (void) playMusic {
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

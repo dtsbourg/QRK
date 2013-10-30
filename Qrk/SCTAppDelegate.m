@@ -13,9 +13,7 @@
 
 + (void) initialize
 {
-    [SCSoundCloud setClientID:@"75f7bbc478b4744f71e8a545670fdf43"
-                       secret:@"cd07808e50adc3e3068cd83d1fa34e18"
-                  redirectURL:[NSURL URLWithString:@"sampleproject://oauth"]];
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

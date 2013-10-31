@@ -19,12 +19,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JXHTTP.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-NSData+Base64.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-NXOAuth2Client.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-OHAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TMTumblrSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38BE9B549AB9421394FA9E79</key>
+		<key>38021B33DE024F63ADC4FC9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CFC4990BCF54D8893C2C50C</key>
+		<key>48D5DF7714E144A48811A4BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5DB389A9E1FD4E29B4805F2D</key>
+		<key>4D8FCAC71B274C90BF3FC668</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A41E0F822B14407CBB155C70</key>
+		<key>67140A0D53B54D61AE5C0F2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EED8B21712E14390B8127504</key>
+		<key>77867E0457B5403CBC8182F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FFF095EE461447E08506FE25</key>
+		<key>8797E83B1EA5457EB8351CB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91FE37D2D62B42C9858D5066</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ADE7F15596CB45A499F1CEEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3E050053789403C836F021B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

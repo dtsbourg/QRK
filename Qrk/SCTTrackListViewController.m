@@ -13,7 +13,10 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
-@interface SCTTrackListViewController ()
+@interface SCTTrackListViewController () {
+    AVAudioSession *audioSession;
+
+}
 
 
 @end
@@ -72,8 +75,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    player=[[AVAudioPlayer alloc]init];
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     self.navigationController.navigationBar.translucent=NO;
@@ -182,9 +183,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
              responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                  dispatch_async(dispatch_get_main_queue(), ^{
                     NSError *playerError;
-                     player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
-                     [player prepareToPlay];
-                     [player play];
+                     if (player==nil) {
+                         player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
+                         [player prepareToPlay];
+                         [player play];
+                     }
+                     
+                     else if (player.isPlaying==YES) {
+                         [player pause];
+                     }
                  });
              }];
 

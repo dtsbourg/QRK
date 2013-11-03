@@ -10,6 +10,7 @@
 #import "SCTTrackListViewController.h"
 #import "SCUI.h"
 #import "SCTViewcell.h"
+#import "TMAPIClient.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -57,6 +58,9 @@
 {
     [super viewDidLoad];
     
+    [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
+    [TMAPIClient sharedInstance].OAuthConsumerSecret=@"pyARG8a2xedThyL1I5zTHDRQUgDLJmAWRaqywbiqQ6cSWMvyAe";
+    
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     self.navigationController.navigationBar.translucent=NO;
     self.navigationController.navigationBar.opaque=YES;
@@ -92,6 +96,7 @@
     return 1;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -102,17 +107,13 @@
         cell = [nib objectAtIndex:0];
     }
     
-    if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SCTViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
     
     cell.articleTrackTitle.text=@"Air France";
     cell.articleTrackArtist.text=@"Joris Delacroix";
     cell.articleTrackIllustration.image=[UIImage imageNamed:@"jorisd.png"];
     cell.articleGist.text=@"Listen to Air france by Joris Delacroix | Explore the largest community of artists, bands, podcasters and creators of music & audio.";
     cell.articleDate.text=@"Thursday, Oct. 14th";
-    
+        
     return cell;
 }
 
@@ -120,6 +121,7 @@
 {
     return 500;
 }
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface SCTFeedViewController : UITableViewController
+@interface SCTFeedViewController : UITableViewController 
 
 @end

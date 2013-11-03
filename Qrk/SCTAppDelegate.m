@@ -8,12 +8,15 @@
 
 #import "SCTAppDelegate.h"
 #import "SCUI.h"
+#import "TMAPIClient.h"
 
 @implementation SCTAppDelegate
 
 + (void) initialize
 {
-    
+    [SCSoundCloud setClientID:@"75f7bbc478b4744f71e8a545670fdf43"
+                       secret:@"cd07808e50adc3e3068cd83d1fa34e18"
+                  redirectURL:[NSURL URLWithString:@"sampleproject://oauth"]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -47,6 +50,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[TMAPIClient sharedInstance] handleOpenURL:url];
 }
 
 @end

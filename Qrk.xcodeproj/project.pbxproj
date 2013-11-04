@@ -43,6 +43,10 @@
 		FCA305A5181000FD001C5EE8 /* SCTViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA305A4181000FD001C5EE8 /* SCTViewCell.m */; };
 		FCA305A8181004B6001C5EE8 /* SCTFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA305A7181004B6001C5EE8 /* SCTFeedViewController.m */; };
 		FCA305B2181037FF001C5EE8 /* jorisd.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA305B1181037FF001C5EE8 /* jorisd.png */; };
+		FCD5B7171828098200AD3D1F /* SCTTumblrPost.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B7161828098200AD3D1F /* SCTTumblrPost.m */; };
+		FCD5B71A18280A8500AD3D1F /* SCTTumblrPostCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B71918280A8500AD3D1F /* SCTTumblrPostCommunicator.m */; };
+		FCD5B71E18280DA000AD3D1F /* SCTTumblrPostBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B71D18280DA000AD3D1F /* SCTTumblrPostBuilder.m */; };
+		FCD5B72218280ED700AD3D1F /* SCTTumblrPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B72118280ED700AD3D1F /* SCTTumblrPostManager.m */; };
 		FCFA3B0F180C98D800484DE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B0E180C98D800484DE4 /* Foundation.framework */; };
 		FCFA3B11180C98D800484DE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B10180C98D800484DE4 /* CoreGraphics.framework */; };
 		FCFA3B13180C98D800484DE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B12180C98D800484DE4 /* UIKit.framework */; };
@@ -116,6 +120,16 @@
 		FCA305A6181004B6001C5EE8 /* SCTFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTFeedViewController.h; sourceTree = "<group>"; };
 		FCA305A7181004B6001C5EE8 /* SCTFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTFeedViewController.m; sourceTree = "<group>"; };
 		FCA305B1181037FF001C5EE8 /* jorisd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jorisd.png; sourceTree = "<group>"; };
+		FCD5B7151828098200AD3D1F /* SCTTumblrPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCTTumblrPost.h; path = ../SCTTumblrPost.h; sourceTree = "<group>"; };
+		FCD5B7161828098200AD3D1F /* SCTTumblrPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTTumblrPost.m; path = ../SCTTumblrPost.m; sourceTree = "<group>"; };
+		FCD5B71818280A8500AD3D1F /* SCTTumblrPostCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTumblrPostCommunicator.h; sourceTree = "<group>"; };
+		FCD5B71918280A8500AD3D1F /* SCTTumblrPostCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTTumblrPostCommunicator.m; sourceTree = "<group>"; };
+		FCD5B71B18280AEC00AD3D1F /* SCTTumblrPostDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTumblrPostDelegate.h; sourceTree = "<group>"; };
+		FCD5B71C18280DA000AD3D1F /* SCTTumblrPostBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTumblrPostBuilder.h; sourceTree = "<group>"; };
+		FCD5B71D18280DA000AD3D1F /* SCTTumblrPostBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTTumblrPostBuilder.m; sourceTree = "<group>"; };
+		FCD5B71F18280E9000AD3D1F /* SCTPostManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTPostManagerDelegate.h; sourceTree = "<group>"; };
+		FCD5B72018280ED700AD3D1F /* SCTTumblrPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTumblrPostManager.h; sourceTree = "<group>"; };
+		FCD5B72118280ED700AD3D1F /* SCTTumblrPostManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTTumblrPostManager.m; sourceTree = "<group>"; };
 		FCFA3B0B180C98D800484DE4 /* Qrk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qrk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFA3B0E180C98D800484DE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFA3B10180C98D800484DE4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +227,31 @@
 			name = Buttons;
 			sourceTree = "<group>";
 		};
+		FCD5B72318280F2400AD3D1F /* TumblrParser */ = {
+			isa = PBXGroup;
+			children = (
+				FCD5B72418280F3300AD3D1F /* Protocols */,
+				FCD5B7151828098200AD3D1F /* SCTTumblrPost.h */,
+				FCD5B7161828098200AD3D1F /* SCTTumblrPost.m */,
+				FCD5B71818280A8500AD3D1F /* SCTTumblrPostCommunicator.h */,
+				FCD5B71918280A8500AD3D1F /* SCTTumblrPostCommunicator.m */,
+				FCD5B71C18280DA000AD3D1F /* SCTTumblrPostBuilder.h */,
+				FCD5B71D18280DA000AD3D1F /* SCTTumblrPostBuilder.m */,
+				FCD5B72018280ED700AD3D1F /* SCTTumblrPostManager.h */,
+				FCD5B72118280ED700AD3D1F /* SCTTumblrPostManager.m */,
+			);
+			name = TumblrParser;
+			sourceTree = "<group>";
+		};
+		FCD5B72418280F3300AD3D1F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FCD5B71B18280AEC00AD3D1F /* SCTTumblrPostDelegate.h */,
+				FCD5B71F18280E9000AD3D1F /* SCTPostManagerDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		FCFA3B02180C98D800484DE4 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */,
+				FCD5B72318280F2400AD3D1F /* TumblrParser */,
 				FCFA3B1D180C98D800484DE4 /* SCTAppDelegate.h */,
 				FCFA3B1E180C98D800484DE4 /* SCTAppDelegate.m */,
 				FCFA3B20180C98D800484DE4 /* Main.storyboard */,
@@ -475,6 +515,10 @@
 				FCA30565180C9C2D001C5EE8 /* SCTTrackListViewController.m in Sources */,
 				FCA305A5181000FD001C5EE8 /* SCTViewCell.m in Sources */,
 				FCA30598180DE0B0001C5EE8 /* SCTTrackCell.m in Sources */,
+				FCD5B71E18280DA000AD3D1F /* SCTTumblrPostBuilder.m in Sources */,
+				FCD5B71A18280A8500AD3D1F /* SCTTumblrPostCommunicator.m in Sources */,
+				FCD5B7171828098200AD3D1F /* SCTTumblrPost.m in Sources */,
+				FCD5B72218280ED700AD3D1F /* SCTTumblrPostManager.m in Sources */,
 				FCFA3B1F180C98D800484DE4 /* SCTAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

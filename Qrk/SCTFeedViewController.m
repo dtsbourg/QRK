@@ -11,10 +11,17 @@
 #import "SCUI.h"
 #import "SCTViewcell.h"
 #import "TMAPIClient.h"
+#import "SCTTumblrPost.h"
+#import "SCTTumblrPostManager.h"
+#import "SCTTumblrPostCommunicator.h"
+
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-@interface SCTFeedViewController ()
+@interface SCTFeedViewController () <SCTPostManagerDelegate> {
+    NSArray *_posts;
+    SCTTumblrPostManager *_manager;
+}
 
 @end
 
@@ -68,12 +75,41 @@
     self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
     self.tabBarController.tabBar.translucent=YES;
     
+    _manager = [[SCTTumblrPostManager alloc] init];
+    _manager.communicator = [[SCTTumblrPostCommunicator alloc] init];
+    _manager.communicator.delegate = _manager;
+    _manager.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(startFetchingPosts:)
+                                                 name:@"kCLAuthorizationStatusAuthorized"
+                                               object:nil];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+#pragma mark - Notification Observer
+- (void)startFetchingPosts:(NSNotification *)notification
+{
+    [_manager fetchPosts];
+}
+
+#pragma mark - SCTPostManagerDelegate
+
+- (void)didReceivePosts:(NSArray *)posts
+{
+    _posts = posts;
+    [self.tableView reloadData];
+}
+
+- (void)fetchingPostsFailedWithError:(NSError *)error
+{
+    NSLog(@"Error %@; %@", error, [error localizedDescription]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,7 +129,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    NSLog(@"Number of posts %d",_posts.count);
+    return _posts.count;
 }
 
 
@@ -107,9 +144,10 @@
         cell = [nib objectAtIndex:0];
     }
     
+    SCTTumblrPost *post = _posts[indexPath.row];
     
     cell.articleTrackTitle.text=@"Air France";
-    cell.articleTrackArtist.text=@"Joris Delacroix";
+    cell.articleTrackArtist.text=post.artistName;
     cell.articleTrackIllustration.image=[UIImage imageNamed:@"jorisd.png"];
     cell.articleGist.text=@"Listen to Air france by Joris Delacroix | Explore the largest community of artists, bands, podcasters and creators of music & audio.";
     cell.articleDate.text=@"Thursday, Oct. 14th";

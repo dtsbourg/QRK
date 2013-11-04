@@ -15,7 +15,6 @@
 
 @interface SCTTrackListViewController () {
     AVAudioSession *audioSession;
-
 }
 
 
@@ -38,6 +37,7 @@
 - (IBAction)getTracks:(id)sender {
     
     SCAccount *account = [SCSoundCloud account];
+    
     if (account == nil) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Not Logged In"
@@ -57,7 +57,7 @@
                                              options:0
                                              error:&jsonError];
         
-        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
+        if (!jsonError) {
             self.tracks = (NSArray *)jsonResponse;
         }
     };
@@ -83,6 +83,8 @@
     
     self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
     self.tabBarController.tabBar.translucent=YES;
+    
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

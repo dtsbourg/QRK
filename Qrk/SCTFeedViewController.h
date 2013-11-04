@@ -11,5 +11,7 @@
 
 
 @interface SCTFeedViewController : UITableViewController
+
+@property (strong, nonatomic) NSArray *posts;
     
 @end

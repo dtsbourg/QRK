@@ -11,21 +11,19 @@
 #import "SCUI.h"
 #import "SCTViewcell.h"
 #import "TMAPIClient.h"
-#import "SCTTumblrPost.h"
-#import "SCTTumblrPostManager.h"
-#import "SCTTumblrPostCommunicator.h"
+
+#define API_KEY @"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D"
+#define PAGES 5
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-@interface SCTFeedViewController () <SCTPostManagerDelegate> {
-    NSArray *_posts;
-    SCTTumblrPostManager *_manager;
-}
+@interface SCTFeedViewController () 
 
 @end
 
 @implementation SCTFeedViewController
+@synthesize posts;
 
 - (IBAction) login:(id) sender
 {
@@ -75,17 +73,33 @@
     self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
     self.tabBarController.tabBar.translucent=YES;
     
-    _manager = [[SCTTumblrPostManager alloc] init];
-    _manager.communicator = [[SCTTumblrPostCommunicator alloc] init];
-    _manager.communicator.delegate = _manager;
-    _manager.delegate = self;
+  
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSError *error = nil;
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/quark-up.tumblr.com/posts?api_key=%@&limit=%d",API_KEY, PAGES ]];
+        NSString *json = [NSString stringWithContentsOfURL:url
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:&error];
+        
+        if(!error) {
+            NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                       options:kNilOptions
+                                                                       error:&error];
+            
+           
+                //self.posts=(NSArray*)jsonDict;
+            //self.posts=[jsonDict objectForKey:@"posts"];
+           
+            NSDictionary *result=[jsonDict objectForKey:@"response"];
+            self.posts=(NSArray*)[result objectForKey:@"posts"];
+            NSLog(@"%@", self.posts);
+        }
+    });
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(startFetchingPosts:)
-                                                 name:@"kCLAuthorizationStatusAuthorized"
-                                               object:nil];
     
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -93,24 +107,15 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-#pragma mark - Notification Observer
-- (void)startFetchingPosts:(NSNotification *)notification
+- (void)viewWillAppear:(BOOL)animated
 {
-    [_manager fetchPosts];
-}
-
-#pragma mark - SCTPostManagerDelegate
-
-- (void)didReceivePosts:(NSArray *)posts
-{
-    _posts = posts;
+    [super viewWillAppear:animated];
+    
+    //reload the table to catch any changes
     [self.tableView reloadData];
+    
 }
 
-- (void)fetchingPostsFailedWithError:(NSError *)error
-{
-    NSLog(@"Error %@; %@", error, [error localizedDescription]);
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -129,8 +134,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"Number of posts %d",_posts.count);
-    return _posts.count;
+    NSLog(@"%d",[self.posts count]);
+    return [self.posts count];
 }
 
 
@@ -144,13 +149,34 @@
         cell = [nib objectAtIndex:0];
     }
     
-    SCTTumblrPost *post = _posts[indexPath.row];
+    if (posts) {
+        NSURL*url;
+        NSDictionary *post = [self.posts objectAtIndex:indexPath.row];
+        cell.articleTrackArtist.text=[post objectForKey:@"artist"];
+        cell.articleTrackTitle.text=[post objectForKey:@"track_name"];
+        cell.articleGist.text=[post objectForKey:@"caption"];
+        
+        if ([[post objectForKey:@"type" ]isEqualToString:@"video"]) {
+            url= [NSURL URLWithString:[post objectForKey:@"thumbnail_url"]];
+            cell.articleTrackIllustration.image=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
+        }
+        
+        else if ([[post objectForKey:@"type" ]isEqualToString:@"audio"])
+        {
+            url= [NSURL URLWithString:[post objectForKey:@"album_art"]];
+            cell.articleTrackIllustration.image=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
+        
+        }
+        
+        else {
+            cell.articleTrackIllustration.image=[UIImage imageNamed:@"quark_up.png"];
+        }
+        
+        cell.articleTrackIllustration.clipsToBounds=YES;
+        
+    }
     
-    cell.articleTrackTitle.text=@"Air France";
-    cell.articleTrackArtist.text=post.artistName;
-    cell.articleTrackIllustration.image=[UIImage imageNamed:@"jorisd.png"];
-    cell.articleGist.text=@"Listen to Air france by Joris Delacroix | Explore the largest community of artists, bands, podcasters and creators of music & audio.";
-    cell.articleDate.text=@"Thursday, Oct. 14th";
+        cell.articleDate.text=@"Thursday, Oct. 14th";
         
     return cell;
 }

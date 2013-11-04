@@ -84,6 +84,43 @@
     self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
     self.tabBarController.tabBar.translucent=YES;
     
+    SCAccount *account = [SCSoundCloud account];
+    
+    if (account == nil) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Not Logged In"
+                              message:@"You must login first"
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    SCRequestResponseHandler handler;
+    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        NSError *jsonError = nil;
+        NSJSONSerialization *jsonResponse = [NSJSONSerialization
+                                             JSONObjectWithData:data
+                                             options:0
+                                             error:&jsonError];
+        
+        if (!jsonError) {
+            self.tracks = (NSArray *)jsonResponse;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    };
+    
+    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
+    [SCRequest performMethod:SCRequestMethodGET
+                  onResource:[NSURL URLWithString:resourceURL]
+             usingParameters:nil
+                 withAccount:account
+      sendingProgressHandler:nil
+             responseHandler:handler];
+    
     
 
     // Uncomment the following line to preserve selection between presentations.

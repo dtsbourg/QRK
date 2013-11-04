@@ -95,6 +95,10 @@
             NSDictionary *result=[jsonDict objectForKey:@"response"];
             self.posts=(NSArray*)[result objectForKey:@"posts"];
             NSLog(@"%@", self.posts);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
         }
     });
     
@@ -134,7 +138,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"%d",[self.posts count]);
     return [self.posts count];
 }
 

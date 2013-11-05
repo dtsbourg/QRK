@@ -12,6 +12,7 @@
 #import "SCTViewcell.h"
 #import "TMAPIClient.h"
 #import "NSString+HTML.h"
+#import "SCTPersonalInfoViewController.h"
 
 #define API_KEY @"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D"
 #define PAGES 5
@@ -28,7 +29,10 @@
 
 - (IBAction) login:(id) sender
 {
-    SCLoginViewControllerCompletionHandler handler = ^(NSError *error) {
+    SCAccount *account = [SCSoundCloud account];
+    if(!account)
+    {
+        SCLoginViewControllerCompletionHandler handler = ^(NSError *error) {
         if (SC_CANCELED(error)) {
             NSLog(@"Canceled!");
         } else if (error) {
@@ -46,17 +50,12 @@
                                completionHandler:handler];
         [self presentViewController:loginViewController animated:YES completion:nil];
     }];
-}
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-        [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
-        NSLog(@"initwithstyle");
     }
-    return self;
+    
+    else {
+        // Testing : self.navigationItem.rightBarButtonItem.enabled=NO;
+        [self performSegueWithIdentifier:@"personalInfoSegue" sender:self];
+    }
 }
 
 
@@ -64,15 +63,12 @@
 {
     [super viewDidLoad];
     
-    [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
-    [TMAPIClient sharedInstance].OAuthConsumerSecret=@"pyARG8a2xedThyL1I5zTHDRQUgDLJmAWRaqywbiqQ6cSWMvyAe";
-    
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
-    self.navigationController.navigationBar.translucent=NO;
-    self.navigationController.navigationBar.opaque=YES;
-    
     self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
     self.tabBarController.tabBar.translucent=YES;
+    
+    
+    [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
+    [TMAPIClient sharedInstance].OAuthConsumerSecret=@"pyARG8a2xedThyL1I5zTHDRQUgDLJmAWRaqywbiqQ6cSWMvyAe";
     
   
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -95,6 +91,7 @@
             NSLog(@"%@", self.posts);
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 [self.tableView reloadData];
             });
         }
@@ -103,22 +100,9 @@
     
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+     self.clearsSelectionOnViewWillAppear = NO;
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    //reload the table to catch any changes
-    [self.tableView reloadData];
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -205,6 +189,7 @@
         
         else if (!didGetIllustration) {
             cell.articleTrackIllustration.image=[UIImage imageNamed:@"quark_up.png"];
+            cell.articleTrackTitle.text=[post objectForKey:@"title"];
         }
         
         cell.articleTrackIllustration.clipsToBounds=YES;

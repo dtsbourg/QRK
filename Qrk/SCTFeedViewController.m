@@ -83,14 +83,11 @@
                                                      error:&error];
         
         if(!error) {
-            NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+            NSData *jsonData = [json dataUsingEncoding:NSISOLatin1StringEncoding];
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                        options:kNilOptions
                                                                        error:&error];
             
-           
-                //self.posts=(NSArray*)jsonDict;
-            //self.posts=[jsonDict objectForKey:@"posts"];
            
             NSDictionary *result=[jsonDict objectForKey:@"response"];
             self.posts=(NSArray*)[result objectForKey:@"posts"];
@@ -110,6 +107,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -153,12 +151,20 @@
     }
     
     if (posts) {
+        
         NSURL*url;
         NSDictionary *post = [self.posts objectAtIndex:indexPath.row];
+        
+        //Artist
         cell.articleTrackArtist.text=[post objectForKey:@"artist"];
+        
+        //Track
         cell.articleTrackTitle.text=[post objectForKey:@"track_name"];
+        
+        //Gist
         cell.articleGist.text=[post objectForKey:@"caption"];
         
+        //Illustration
         if ([[post objectForKey:@"type" ]isEqualToString:@"video"]) {
             url= [NSURL URLWithString:[post objectForKey:@"thumbnail_url"]];
             cell.articleTrackIllustration.image=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
@@ -177,9 +183,21 @@
         
         cell.articleTrackIllustration.clipsToBounds=YES;
         
+        //Date
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        [formatter setDateFormat:@"y-M-d HH:mm:ss zz"];
+        NSString *dateString = [post objectForKey:@"date"];
+        NSDate *postDate = [formatter dateFromString:dateString];
+        NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:postDate];
+        
+        NSDateFormatter *monthFormat = [[NSDateFormatter alloc] init];
+        [monthFormat setDateFormat:@"MMMM"];
+        
+        NSString *month = [monthFormat stringFromDate:postDate];
+        
+        cell.articleDate.text=[NSString stringWithFormat:@"%@ %d, %d",month, [dateComps day], [dateComps year]];
     }
-    
-        cell.articleDate.text=@"Thursday, Oct. 14th";
         
     return cell;
 }

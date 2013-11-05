@@ -11,6 +11,7 @@
 #import "SCUI.h"
 #import "SCTViewcell.h"
 #import "TMAPIClient.h"
+#import "NSString+HTML.h"
 
 #define API_KEY @"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D"
 #define PAGES 5
@@ -162,22 +163,47 @@
         cell.articleTrackTitle.text=[post objectForKey:@"track_name"];
         
         //Gist
-        cell.articleGist.text=[post objectForKey:@"caption"];
+        NSMutableString* gistString = (NSMutableString*) [[post objectForKey:@"caption"] kv_decodeHTMLCharacterEntities];
+        
+        NSRegularExpression *regexParagraph = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*p>"
+                                                                   options:NSRegularExpressionCaseInsensitive
+                                                                   error:nil];
+        NSRegularExpression *regexLink = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*a[^>]*>"
+                                                              options:NSRegularExpressionCaseInsensitive
+                                                              error:nil];
+        
+        [regexParagraph replaceMatchesInString:gistString options:0 range:NSMakeRange(0, gistString.length) withTemplate:@""];
+        [regexLink replaceMatchesInString:gistString options:0 range:NSMakeRange(0, gistString.length) withTemplate:@""];
+        
+        cell.articleGist.text=gistString;
         
         //Illustration
+        bool didGetIllustration=NO;
+        
         if ([[post objectForKey:@"type" ]isEqualToString:@"video"]) {
+            
             url= [NSURL URLWithString:[post objectForKey:@"thumbnail_url"]];
-            cell.articleTrackIllustration.image=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
+            UIImage *illustration=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
+            
+            if (illustration) {
+                cell.articleTrackIllustration.image=illustration;
+                didGetIllustration=YES;
+            }
         }
         
-        else if ([[post objectForKey:@"type" ]isEqualToString:@"audio"])
-        {
+        else if ([[post objectForKey:@"type" ]isEqualToString:@"audio"]) {
+            
             url= [NSURL URLWithString:[post objectForKey:@"album_art"]];
-            cell.articleTrackIllustration.image=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
+            UIImage *illustration=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
+            
+            if (illustration) {
+                cell.articleTrackIllustration.image=illustration;
+                didGetIllustration=YES;
+            }
         
         }
         
-        else {
+        else if (!didGetIllustration) {
             cell.articleTrackIllustration.image=[UIImage imageNamed:@"quark_up.png"];
         }
         

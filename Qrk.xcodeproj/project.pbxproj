@@ -47,6 +47,7 @@
 		FCD5B71A18280A8500AD3D1F /* SCTTumblrPostCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B71918280A8500AD3D1F /* SCTTumblrPostCommunicator.m */; };
 		FCD5B71E18280DA000AD3D1F /* SCTTumblrPostBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B71D18280DA000AD3D1F /* SCTTumblrPostBuilder.m */; };
 		FCD5B72218280ED700AD3D1F /* SCTTumblrPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B72118280ED700AD3D1F /* SCTTumblrPostManager.m */; };
+		FCD5B72F1829357500AD3D1F /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B72E1829357500AD3D1F /* NSString+HTML.m */; };
 		FCFA3B0F180C98D800484DE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B0E180C98D800484DE4 /* Foundation.framework */; };
 		FCFA3B11180C98D800484DE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B10180C98D800484DE4 /* CoreGraphics.framework */; };
 		FCFA3B13180C98D800484DE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B12180C98D800484DE4 /* UIKit.framework */; };
@@ -130,6 +131,8 @@
 		FCD5B71F18280E9000AD3D1F /* SCTPostManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTPostManagerDelegate.h; sourceTree = "<group>"; };
 		FCD5B72018280ED700AD3D1F /* SCTTumblrPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTumblrPostManager.h; sourceTree = "<group>"; };
 		FCD5B72118280ED700AD3D1F /* SCTTumblrPostManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTTumblrPostManager.m; sourceTree = "<group>"; };
+		FCD5B72D1829357500AD3D1F /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		FCD5B72E1829357500AD3D1F /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		FCFA3B0B180C98D800484DE4 /* Qrk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qrk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFA3B0E180C98D800484DE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFA3B10180C98D800484DE4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -294,6 +297,8 @@
 		FCFA3B14180C98D800484DE4 /* Qrk */ = {
 			isa = PBXGroup;
 			children = (
+				FCD5B72D1829357500AD3D1F /* NSString+HTML.h */,
+				FCD5B72E1829357500AD3D1F /* NSString+HTML.m */,
 				FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */,
 				FCD5B72318280F2400AD3D1F /* TumblrParser */,
 				FCFA3B1D180C98D800484DE4 /* SCTAppDelegate.h */,
@@ -513,6 +518,7 @@
 				FCFA3B1B180C98D800484DE4 /* main.m in Sources */,
 				FCA305A8181004B6001C5EE8 /* SCTFeedViewController.m in Sources */,
 				FCA30565180C9C2D001C5EE8 /* SCTTrackListViewController.m in Sources */,
+				FCD5B72F1829357500AD3D1F /* NSString+HTML.m in Sources */,
 				FCA305A5181000FD001C5EE8 /* SCTViewCell.m in Sources */,
 				FCA30598180DE0B0001C5EE8 /* SCTTrackCell.m in Sources */,
 				FCD5B71E18280DA000AD3D1F /* SCTTumblrPostBuilder.m in Sources */,

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Reachability.h"
 
 
 @interface SCTFeedViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *posts;
+-(BOOL) connected;
     
 @end

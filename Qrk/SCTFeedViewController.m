@@ -16,17 +16,26 @@
 #import "MRProgress.h"
 
 #define API_KEY @"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D"
-#define PAGES 5
+#define PAGES 10
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-@interface SCTFeedViewController () 
+@interface SCTFeedViewController () {
+    Reachability *internetReachableFoo;
+}
 
 @end
 
 @implementation SCTFeedViewController
 @synthesize posts;
+
+- (BOOL)connected
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return !(networkStatus == NotReachable);
+}
 
 - (IBAction) login:(id) sender
 {
@@ -63,44 +72,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
- 
     
-    self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
-    self.tabBarController.tabBar.translucent=YES;
-    
-    
-    [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
-    [TMAPIClient sharedInstance].OAuthConsumerSecret=@"pyARG8a2xedThyL1I5zTHDRQUgDLJmAWRaqywbiqQ6cSWMvyAe";
-    
-  
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-        NSError *error = nil;
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/quark-up.tumblr.com/posts?api_key=%@&limit=%d",API_KEY, PAGES ]];
-        NSString *json = [NSString stringWithContentsOfURL:url
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:&error];
+    if ([self connected]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         
-        if(!error) {
-            NSData *jsonData = [json dataUsingEncoding:NSISOLatin1StringEncoding];
-            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                       options:kNilOptions
-                                                                       error:&error];
+        
+        self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
+        self.tabBarController.tabBar.translucent=YES;
+        
+        
+        [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
+        [TMAPIClient sharedInstance].OAuthConsumerSecret=@"pyARG8a2xedThyL1I5zTHDRQUgDLJmAWRaqywbiqQ6cSWMvyAe";
+        
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            NSError *error = nil;
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/quark-up.tumblr.com/posts?api_key=%@&limit=%d",API_KEY, PAGES ]];
+            NSString *json = [NSString stringWithContentsOfURL:url
+                                                      encoding:NSUTF8StringEncoding
+                                                         error:&error];
             
-           
-            NSDictionary *result=[jsonDict objectForKey:@"response"];
-            self.posts=(NSArray*)[result objectForKey:@"posts"];
-            NSLog(@"%@", self.posts);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
+            if(!error) {
+                NSData *jsonData = [json dataUsingEncoding:NSISOLatin1StringEncoding];
+                NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                         options:kNilOptions
+                                                                           error:&error];
                 
-                [self.tableView reloadData];
-                [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
-            });
-        }
-    });
+                
+                NSDictionary *result=[jsonDict objectForKey:@"response"];
+                self.posts=(NSArray*)[result objectForKey:@"posts"];
+                NSLog(@"%@", self.posts);
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.tableView reloadData];
+                    [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
+                });
+            }
+        });
+    }
     
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:@"Please check your connection to use Qrk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
     
     
     
@@ -126,7 +142,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.posts count];
+    //return [self.posts count];
+    
+    if ([self connected]) return [self.posts count];
+    else return 0;
 }
 
 

@@ -16,4 +16,5 @@
 @property (strong, nonatomic) NSArray *tracks;
 @property (strong, nonatomic) AVAudioPlayer* player;
 
+-(BOOL) connected;
 @end

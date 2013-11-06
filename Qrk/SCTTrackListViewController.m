@@ -10,12 +10,14 @@
 #import "SCUI.h"
 #import "SCTTrackCell.h"
 #import "MRProgress.h"
+#import "Reachability.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 @interface SCTTrackListViewController () {
     AVAudioSession *audioSession;
+   
 }
 
 
@@ -35,8 +37,10 @@
     return self;
 }
 
+
 - (IBAction)getTracks:(id)sender {
     
+    if ([self connected]) {
     SCAccount *account = [SCSoundCloud account];
     
     if (account == nil) {
@@ -72,12 +76,21 @@
              responseHandler:handler];
     
     [self.tableView reloadData];
+    }
+    
+    else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:@"Please check your connection to use Qrk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    if ([self connected]) {
     [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
     [MRProgressOverlayView appearance];
     
@@ -126,14 +139,24 @@
                  withAccount:account
       sendingProgressHandler:nil
              responseHandler:handler];
+    }
     
-
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:@"Please check your connection to use Qrk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
      self.clearsSelectionOnViewWillAppear = NO;
  
 }
 
-
+- (BOOL)connected
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return !(networkStatus == NotReachable);
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -150,7 +173,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.tracks count];
+    //return [self.tracks count];
+    if ([self connected]) return [self.tracks count];
+    else return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -210,8 +235,7 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
     NSString *streamURL = [track objectForKey:@"stream_url"];

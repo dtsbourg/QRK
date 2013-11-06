@@ -11,6 +11,7 @@ PODS:
   - NSData+Base64 (1.0.0)
   - NXOAuth2Client (1.2.1)
   - OHAttributedLabel (3.5.3)
+  - SWTableViewCell (0.0.9)
   - TMTumblrSDK (1.0.4):
     - TMTumblrSDK/Activity
     - TMTumblrSDK/APIClient
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - CocoaSoundCloudAPI (= 1.0.1)
   - CocoaSoundCloudUI (= 1.0.5)
   - MRProgress (~> 0.2)
+  - SWTableViewCell (= 0.0.9)
   - TMTumblrSDK
 
 SPEC CHECKSUMS:
@@ -43,6 +45,7 @@ SPEC CHECKSUMS:
   NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
   NXOAuth2Client: 478bc4f9a04e7ba9908b6c40f8669321676af0ee
   OHAttributedLabel: 985e4b57eec0dc6add79179ac47ec888b8a914e7
+  SWTableViewCell: 7e223815a3dea79af1eb73a30e4ae897dcd871f3
   TMTumblrSDK: 1a175f7d6f9403874d86fac045c7b55fabb79389
 
 COCOAPODS: 0.26.2

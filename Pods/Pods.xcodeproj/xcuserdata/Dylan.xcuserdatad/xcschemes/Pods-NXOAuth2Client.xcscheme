@@ -7,53 +7,53 @@
       parallelizeBuildables = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
-            buildForArchiving = "YES"
+            buildForAnalyzing = "YES"
             buildForProfiling = "YES"
+            buildForArchiving = "YES"
             buildForRunning = "YES"
-            buildForAnalyzing = "YES">
+            buildForTesting = "YES">
             <BuildableReference
-               BlueprintIdentifier = "AE8AC49DDB0D42DEAED1773D"
-               BuildableIdentifier = "primary"
-               ReferencedContainer = "container:Pods.xcodeproj"
+               BlueprintIdentifier = "D172C0F6831B49BDBC9244FE"
                BuildableName = "libPods-NXOAuth2Client.a"
-               BlueprintName = "Pods-NXOAuth2Client">
+               BlueprintName = "Pods-NXOAuth2Client"
+               BuildableIdentifier = "primary"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      buildConfiguration = "Debug">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      buildConfiguration = "Debug"
-      launchStyle = "0"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      useCustomWorkingDirectory = "NO"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      buildConfiguration = "Debug"
       allowLocationSimulation = "YES"
-      useCustomWorkingDirectory = "NO">
+      ignoresPersistentStateOnLaunch = "NO"
+      launchStyle = "0">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      savedToolIdentifier = ""
-      shouldUseLaunchSchemeArgsEnv = "YES"
       debugDocumentVersioning = "YES"
-      buildConfiguration = "Release"
-      useCustomWorkingDirectory = "NO">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      useCustomWorkingDirectory = "NO"
+      savedToolIdentifier = ""
+      buildConfiguration = "Release">
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
-      revealArchiveInOrganizer = "YES">
+      revealArchiveInOrganizer = "YES"
+      buildConfiguration = "Release">
    </ArchiveAction>
 </Scheme>

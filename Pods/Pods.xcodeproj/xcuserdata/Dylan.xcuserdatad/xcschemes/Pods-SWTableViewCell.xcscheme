@@ -13,9 +13,9 @@
             buildForRunning = "YES"
             buildForTesting = "YES">
             <BuildableReference
-               BlueprintIdentifier = "C0A547D3419D4277B8804070"
-               BuildableName = "libPods-NSData+Base64.a"
-               BlueprintName = "Pods-NSData+Base64"
+               BlueprintIdentifier = "7E02CEC51EAD458DB6E8939A"
+               BuildableName = "libPods-SWTableViewCell.a"
+               BlueprintName = "Pods-SWTableViewCell"
                BuildableIdentifier = "primary"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

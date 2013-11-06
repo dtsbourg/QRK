@@ -17,7 +17,7 @@
 
 @interface SCTTrackListViewController () {
     AVAudioSession *audioSession;
-   
+    NSString *resourceURL;
 }
 
 
@@ -27,6 +27,23 @@
 
 @synthesize tracks;
 @synthesize player;
+
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    
+    if (selectedSegment == 0) {
+        //toggle the correct view to be visible
+        resourceURL = @"https://api.soundcloud.com/quark-up/favorites.json";
+        [self.tableView reloadData];
+    }
+    else{
+        //toggle the correct view to be visible
+        resourceURL = @"https://api.soundcloud.com/me/favorites.json";
+        [self.tableView reloadData];
+    }
+
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -67,7 +84,6 @@
         }
     };
     
-    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
     [SCRequest performMethod:SCRequestMethodGET
                   onResource:[NSURL URLWithString:resourceURL]
              usingParameters:nil
@@ -92,7 +108,6 @@
     
     if ([self connected]) {
     [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
-    [MRProgressOverlayView appearance];
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     self.navigationController.navigationBar.translucent=NO;
@@ -237,6 +252,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+    
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
     NSString *streamURL = [track objectForKey:@"stream_url"];
     
@@ -253,22 +270,17 @@
                      if (player==nil) {
                          player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                          [player prepareToPlay];
+                         [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                          [player play];
                      }
                  });
              }];
-
+    
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"Not Logged In"
-                          message:@"You must login first"
-                          delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
-    [alert show];
+    NSLog(@"I'm done");
    
 }
 
@@ -276,29 +288,11 @@
     
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 120;
 }
 
-
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
- 
- */
 
 @end

@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SWTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TMTumblrSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4973D0CB05334785A606D169</key>
+		<key>0A43D2BFE45741F4B43746E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FAE6B5918D9477FA8E0A4B7</key>
+		<key>0AFF131177544758BF559320</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95015DF535954CB0B4BB4092</key>
+		<key>23D6BA7654CE4BA28DB37131</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D8CC83729954FB0926933F3</key>
+		<key>4AA853D24414498FAF57A445</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A429E6BE7777464695490CAA</key>
+		<key>7B2C2AB1A7F2417E9F5B4C1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC4C0A55A3E1424D871C09C6</key>
+		<key>7E02CEC51EAD458DB6E8939A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE8AC49DDB0D42DEAED1773D</key>
+		<key>8B3B414782874AF1A7D42D5B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B00107E148C8412B9FE40CAA</key>
+		<key>9B6FF75BE5B4490E9DFBF1D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1B21C86DCF544E0A3FD2356</key>
+		<key>C0A547D3419D4277B8804070</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF235BD8819F4DB2ADF784CA</key>
+		<key>D172C0F6831B49BDBC9244FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCADACC91DA84817B821C92D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

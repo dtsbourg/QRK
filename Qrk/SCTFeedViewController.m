@@ -13,6 +13,7 @@
 #import "TMAPIClient.h"
 #import "NSString+HTML.h"
 #import "SCTPersonalInfoViewController.h"
+#import "MRProgress.h"
 
 #define API_KEY @"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D"
 #define PAGES 5
@@ -62,6 +63,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+ 
     
     self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
     self.tabBarController.tabBar.translucent=YES;
@@ -93,9 +96,11 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [self.tableView reloadData];
+                [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
             });
         }
     });
+    
     
     
     

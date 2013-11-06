@@ -9,6 +9,7 @@
 #import "SCTTrackListViewController.h"
 #import "SCUI.h"
 #import "SCTTrackCell.h"
+#import "MRProgress.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -77,6 +78,9 @@
 {
     [super viewDidLoad];
     
+    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+    [MRProgressOverlayView appearance];
+    
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     self.navigationController.navigationBar.translucent=NO;
     
@@ -107,7 +111,10 @@
         if (!jsonError) {
             self.tracks = (NSArray *)jsonResponse;
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 [self.tableView reloadData];
+                [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
+                
             });
         }
     };
@@ -119,7 +126,6 @@
                  withAccount:account
       sendingProgressHandler:nil
              responseHandler:handler];
-    
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -225,13 +231,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                          [player prepareToPlay];
                          [player play];
                      }
-                     
-                     else if (player.isPlaying==YES) {
-                         [player pause];
-                     }
                  });
              }];
 
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Not Logged In"
+                          message:@"You must login first"
+                          delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+   
 }
 
 - (void) playMusic {

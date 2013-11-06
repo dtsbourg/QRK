@@ -7,13 +7,13 @@
       parallelizeBuildables = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForAnalyzing = "YES"
+            buildForTesting = "YES"
             buildForArchiving = "YES"
-            buildForRunning = "YES"
             buildForProfiling = "YES"
-            buildForTesting = "YES">
+            buildForRunning = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
-               BlueprintIdentifier = "4D8FCAC71B274C90BF3FC668"
+               BlueprintIdentifier = "8FAE6B5918D9477FA8E0A4B7"
                BuildableIdentifier = "primary"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods.a"
@@ -23,31 +23,31 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
-      debugDocumentVersioning = "YES"
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      buildConfiguration = "Debug"
       launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      useCustomWorkingDirectory = "NO">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      debugDocumentVersioning = "YES"
+      savedToolIdentifier = ""
       shouldUseLaunchSchemeArgsEnv = "YES"
+      debugDocumentVersioning = "YES"
       buildConfiguration = "Release"
-      useCustomWorkingDirectory = "NO"
-      savedToolIdentifier = "">
+      useCustomWorkingDirectory = "NO">
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -34,13 +34,16 @@
     
     if (selectedSegment == 0) {
         //toggle the correct view to be visible
-        resourceURL = @"https://api.soundcloud.com/quark-up/favorites.json";
+        [self.accountSegment setSelectedSegmentIndex:0];
+        resourceURL = @"https://api.soundcloud.com/me/favorites.json";
         [self.tableView reloadData];
+        [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
     }
     else{
         //toggle the correct view to be visible
-        resourceURL = @"https://api.soundcloud.com/me/favorites.json";
-        [self.tableView reloadData];
+        resourceURL = @"https://api.soundcloud.com/users/gramatik/favorites.json";
+        [self.accountSegment setSelectedSegmentIndex:1];
+        [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
     }
 
 }
@@ -81,17 +84,34 @@
         
         if (!jsonError) {
             self.tracks = (NSArray *)jsonResponse;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tableView reloadData];
+            });
         }
+        
+        else NSLog(@"%@", [jsonError localizedDescription]);
     };
     
+        switch ([self.accountSegment selectedSegmentIndex]) {
+            case 0:
+                resourceURL=@"https://api.soundcloud.com/me/favorites.json";
+                NSLog(@"user JSON");
+                break;
+            case 1:
+                resourceURL=@"https://api.soundcloud.com/users/gramatik/favorites.json";
+                NSLog(@"QU JSON");
+                break;
+            default:
+                break;
+        }
+        
     [SCRequest performMethod:SCRequestMethodGET
                   onResource:[NSURL URLWithString:resourceURL]
              usingParameters:nil
                  withAccount:account
       sendingProgressHandler:nil
              responseHandler:handler];
-    
-    [self.tableView reloadData];
     }
     
     else {
@@ -129,7 +149,10 @@
     }
     
     SCRequestResponseHandler handler;
-    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+    handler = ^(NSURLResponse *response, NSData *data, NSError *error)
+        {
+        
         NSError *jsonError = nil;
         NSJSONSerialization *jsonResponse = [NSJSONSerialization
                                              JSONObjectWithData:data
@@ -138,16 +161,31 @@
         
         if (!jsonError) {
             self.tracks = (NSArray *)jsonResponse;
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [self.tableView reloadData];
                 [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
-                
             });
         }
-    };
+        
+        else NSLog(@"%@",[jsonError localizedDescription]);
+            
+        };
     
-    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
+        switch ([self.accountSegment selectedSegmentIndex]) {
+            case 0:
+                resourceURL=@"https://api.soundcloud.com/me/favorites.json";
+                NSLog(@"user JSON");
+                break;
+            case 1:
+                resourceURL=@"https://api.soundcloud.com/users/gramatik/favorites.json";
+                NSLog(@"QU JSON");
+                break;
+            default:
+                break;
+        }
+        
     [SCRequest performMethod:SCRequestMethodGET
                   onResource:[NSURL URLWithString:resourceURL]
              usingParameters:nil
@@ -156,7 +194,8 @@
              responseHandler:handler];
     }
     
-    else {
+    else
+    {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:@"Please check your connection to use Qrk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }

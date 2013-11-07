@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSArray *tracks;
 @property (strong, nonatomic) AVAudioPlayer* player;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *accountSegment;
 
 -(BOOL) connected;
 @end

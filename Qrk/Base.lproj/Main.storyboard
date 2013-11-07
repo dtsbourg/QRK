@@ -325,6 +325,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="accountSegment" destination="XQb-NR-Agn" id="OHx-lv-Lss"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AU-zL-LU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

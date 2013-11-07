@@ -16,7 +16,6 @@
 
 
 @interface SCTTrackListViewController () {
-    AVAudioSession *audioSession;
     NSString *resourceURL;
 }
 
@@ -28,25 +27,8 @@
 @synthesize tracks;
 @synthesize player;
 
-- (IBAction)segmentSwitch:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    
-    if (selectedSegment == 0) {
-        //toggle the correct view to be visible
-        [self.accountSegment setSelectedSegmentIndex:0];
-        resourceURL = @"https://api.soundcloud.com/me/favorites.json";
-        [self.tableView reloadData];
-        [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
-    }
-    else{
-        //toggle the correct view to be visible
-        resourceURL = @"https://api.soundcloud.com/users/gramatik/favorites.json";
-        [self.accountSegment setSelectedSegmentIndex:1];
-        [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
-    }
 
-}
+# pragma mark - View
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -55,71 +37,6 @@
         // Custom initialization
     }
     return self;
-}
-
-
-- (IBAction)getTracks:(id)sender {
-    
-    if ([self connected]) {
-    SCAccount *account = [SCSoundCloud account];
-    
-    if (account == nil) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Not Logged In"
-                              message:@"You must login first"
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
-    
-    SCRequestResponseHandler handler;
-    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
-        NSError *jsonError = nil;
-        NSJSONSerialization *jsonResponse = [NSJSONSerialization
-                                             JSONObjectWithData:data
-                                             options:0
-                                             error:&jsonError];
-        
-        if (!jsonError) {
-            self.tracks = (NSArray *)jsonResponse;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self.tableView reloadData];
-            });
-        }
-        
-        else NSLog(@"%@", [jsonError localizedDescription]);
-    };
-    
-        switch ([self.accountSegment selectedSegmentIndex]) {
-            case 0:
-                resourceURL=@"https://api.soundcloud.com/me/favorites.json";
-                NSLog(@"user JSON");
-                break;
-            case 1:
-                resourceURL=@"https://api.soundcloud.com/users/gramatik/favorites.json";
-                NSLog(@"QU JSON");
-                break;
-            default:
-                break;
-        }
-        
-    [SCRequest performMethod:SCRequestMethodGET
-                  onResource:[NSURL URLWithString:resourceURL]
-             usingParameters:nil
-                 withAccount:account
-      sendingProgressHandler:nil
-             responseHandler:handler];
-    }
-    
-    else {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:@"Please check your connection to use Qrk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
-    
 }
 
 - (void)viewDidLoad
@@ -140,10 +57,10 @@
     if (account == nil) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Not Logged In"
-                              message:@"You must login first"
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
+                                    message:@"You must login first"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
         [alert show];
         return;
     }
@@ -156,8 +73,8 @@
         NSError *jsonError = nil;
         NSJSONSerialization *jsonResponse = [NSJSONSerialization
                                              JSONObjectWithData:data
-                                             options:0
-                                             error:&jsonError];
+                                                        options:0
+                                                          error:&jsonError];
         
         if (!jsonError) {
             self.tracks = (NSArray *)jsonResponse;
@@ -176,11 +93,9 @@
         switch ([self.accountSegment selectedSegmentIndex]) {
             case 0:
                 resourceURL=@"https://api.soundcloud.com/me/favorites.json";
-                NSLog(@"user JSON");
                 break;
             case 1:
                 resourceURL=@"https://api.soundcloud.com/users/gramatik/favorites.json";
-                NSLog(@"QU JSON");
                 break;
             default:
                 break;
@@ -196,7 +111,11 @@
     
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:@"Please check your connection to use Qrk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect"
+                                                        message:@"Please check your connection to use Qrk"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         [alert show];
     }
     
@@ -205,6 +124,33 @@
  
 }
 
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    
+    if (selectedSegment == 0) {
+        //toggle the correct view to be visible
+        [self.accountSegment setSelectedSegmentIndex:0];
+        resourceURL = @"https://api.soundcloud.com/me/favorites.json";
+        [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
+    }
+    else{
+        //toggle the correct view to be visible
+        resourceURL = @"https://api.soundcloud.com/users/gramatik/favorites.json";
+        [self.accountSegment setSelectedSegmentIndex:1];
+        [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
+    }
+    
+}
+
+# pragma mark - Internet connection
 - (BOOL)connected
 {
     Reachability *reachability = [Reachability reachabilityForInternetConnection];
@@ -212,10 +158,74 @@
     return !(networkStatus == NotReachable);
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Audio player
+
+- (IBAction)getTracks:(id)sender {
+    
+    if ([self connected]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+        
+        SCAccount *account = [SCSoundCloud account];
+        
+        if (account == nil) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Logged In"
+                                                            message:@"You must login first"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
+        SCRequestResponseHandler handler;
+        handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+            NSError *jsonError = nil;
+            NSJSONSerialization *jsonResponse = [NSJSONSerialization
+                                                 JSONObjectWithData:data
+                                                            options:0
+                                                              error:&jsonError];
+            
+            if (!jsonError) {
+                self.tracks = (NSArray *)jsonResponse;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.tableView reloadData];
+                    [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
+                });
+            }
+            
+            else NSLog(@"%@", [jsonError localizedDescription]);
+        };
+        
+        
+        [SCRequest performMethod:SCRequestMethodGET
+                      onResource:[NSURL URLWithString:resourceURL]
+                 usingParameters:nil
+                     withAccount:account
+          sendingProgressHandler:nil
+                 responseHandler:handler];
+    }
+    
+    else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect"
+                                                        message:@"Please check your connection to use Qrk"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"I'm done");
+    
+}
+
+- (void) playMusic {
+    
 }
 
 #pragma mark - Table view data source
@@ -275,9 +285,15 @@
     cell.trackArtist.text =[userInfo objectForKey:@"username"];
     
     //TRACK ILLUSTRATION
-    if (!([[track objectForKey:@"artwork_url"] isKindOfClass:[NSNull class]])) {
-        if ([[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:[track objectForKey:@"artwork_url"]]]) {
-            cell.trackIllustration.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:[track objectForKey:@"artwork_url"]]]];
+    NSData*imageAlloc;
+    NSString*artworkURL=[track objectForKey:@"artwork_url"];
+    
+    if (!([artworkURL isKindOfClass:[NSNull class]])) {
+        
+        imageAlloc=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:artworkURL]];
+        
+        if (imageAlloc) {
+            cell.trackIllustration.image = [UIImage imageWithData:imageAlloc];
         }
     }
     
@@ -304,8 +320,11 @@
                  withAccount:account
       sendingProgressHandler:nil
              responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                 
                  dispatch_async(dispatch_get_main_queue(), ^{
-                    NSError *playerError;
+                    
+                     NSError *playerError;
+                     
                      if (player==nil) {
                          player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                          [player prepareToPlay];
@@ -314,18 +333,9 @@
                      }
                  });
              }];
-    
 }
 
--(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    NSLog(@"I'm done");
-   
-}
 
-- (void) playMusic {
-    
-}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

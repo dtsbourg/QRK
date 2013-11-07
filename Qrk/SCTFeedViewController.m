@@ -102,7 +102,6 @@
                 
                 NSDictionary *result=[jsonDict objectForKey:@"response"];
                 self.posts=(NSArray*)[result objectForKey:@"posts"];
-                NSLog(@"%@", self.posts);
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
@@ -117,8 +116,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:@"Please check your connection to use Qrk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
-    
-    
     
     // Uncomment the following line to preserve selection between presentations.
      self.clearsSelectionOnViewWillAppear = NO;
@@ -141,8 +138,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    //return [self.posts count];
     
     if ([self connected]) return [self.posts count];
     else return 0;
@@ -172,18 +167,29 @@
         
         //Gist
         NSMutableString* gistString = (NSMutableString*) [[post objectForKey:@"caption"] kv_decodeHTMLCharacterEntities];
+        NSError*paragError=nil; NSError*linkError=nil;
         
         NSRegularExpression *regexParagraph = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*p>"
-                                                                   options:NSRegularExpressionCaseInsensitive
-                                                                   error:nil];
+                                                                                        options:NSRegularExpressionCaseInsensitive
+                                                                                          error:&paragError];
         NSRegularExpression *regexLink = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*a[^>]*>"
-                                                              options:NSRegularExpressionCaseInsensitive
-                                                              error:nil];
+                                                                                   options:NSRegularExpressionCaseInsensitive
+                                                                                     error:&linkError];
+        if (!linkError && !paragError) {
+            
+        [regexParagraph replaceMatchesInString:gistString
+                                       options:0
+                                         range:NSMakeRange(0, gistString.length)
+                                  withTemplate:@""];
         
-        [regexParagraph replaceMatchesInString:gistString options:0 range:NSMakeRange(0, gistString.length) withTemplate:@""];
-        [regexLink replaceMatchesInString:gistString options:0 range:NSMakeRange(0, gistString.length) withTemplate:@""];
+        [regexLink replaceMatchesInString:gistString
+                                  options:0
+                                    range:NSMakeRange(0, gistString.length)
+                             withTemplate:@""];
         
         cell.articleGist.text=gistString;
+            
+        }
         
         //Illustration
         bool didGetIllustration=NO;
@@ -231,7 +237,7 @@
         
         NSString *month = [monthFormat stringFromDate:postDate];
         
-        cell.articleDate.text=[NSString stringWithFormat:@"%@ %d, %d",month, [dateComps day], [dateComps year]];
+        cell.articleDate.text=[NSString stringWithFormat:@"%@ %ld, %ld",month, (long)[dateComps day], (long)[dateComps year]];
     }
         
     return cell;

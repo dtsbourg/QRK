@@ -28,6 +28,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="QRK" id="rMR-PX-lZv">
+                        <barButtonItem key="leftBarButtonItem" image="124-bullhorn.png" id="jlE-XF-T9v">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="cFk-BN-BwH" kind="modal" id="aTM-Tk-xDa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="111-user.png" id="2fH-lp-ff9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -264,6 +270,25 @@
             </objects>
             <point key="canvasLocation" x="1689" y="-276"/>
         </scene>
+        <!--Submission View Controller-->
+        <scene sceneID="UG5-M0-6RO">
+            <objects>
+                <viewController id="cFk-BN-BwH" customClass="SCTSubmissionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dgw-XI-mbs"/>
+                        <viewControllerLayoutGuide type="bottom" id="J7d-UD-KnE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jiC-dT-XZ0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TfY-CG-q9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="-991"/>
+        </scene>
         <!--Navigation Controller - Feed-->
         <scene sceneID="Y1a-mk-cz8">
             <objects>
@@ -372,6 +397,7 @@
     <resources>
         <image name="106-sliders.png" width="24" height="24"/>
         <image name="111-user.png" width="24" height="21"/>
+        <image name="124-bullhorn.png" width="24" height="17"/>
         <image name="77-ekg.png" width="26" height="22"/>
         <image name="cancel_dark.png" width="28" height="28"/>
         <image name="service_facebook_page.png" width="19" height="19"/>

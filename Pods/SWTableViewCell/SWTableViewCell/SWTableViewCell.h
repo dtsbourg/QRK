@@ -37,11 +37,21 @@ typedef enum {
 - (void)setBackgroundColor:(UIColor *)backgroundColor;
 - (void)hideUtilityButtonsAnimated:(BOOL)animated;
 
+@property(nonatomic, weak) IBOutlet UILabel *trackName;
+@property(nonatomic, weak) IBOutlet UILabel *trackArtist;
+@property(nonatomic, weak) IBOutlet UILabel *trackBPM;
+@property(nonatomic, weak) IBOutlet UILabel *trackPlays;
+@property(nonatomic, weak) IBOutlet UILabel *trackFavs;
+@property(nonatomic, weak) IBOutlet UIImageView * trackIllustration;
+
+
 @end
 
 @interface NSMutableArray (SWUtilityButtons)
 
 - (void)addUtilityButtonWithColor:(UIColor *)color title:(NSString *)title;
 - (void)addUtilityButtonWithColor:(UIColor *)color icon:(UIImage *)icon;
+
+
 
 @end

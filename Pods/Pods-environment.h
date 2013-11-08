@@ -25,6 +25,12 @@
 // Please contact the author.
 // Version: 1.5pre.
 
+// JVFloatLabeledTextField
+#define COCOAPODS_POD_AVAILABLE_JVFloatLabeledTextField
+#define COCOAPODS_VERSION_MAJOR_JVFloatLabeledTextField 0
+#define COCOAPODS_VERSION_MINOR_JVFloatLabeledTextField 0
+#define COCOAPODS_VERSION_PATCH_JVFloatLabeledTextField 3
+
 // JXHTTP
 #define COCOAPODS_POD_AVAILABLE_JXHTTP
 #define COCOAPODS_VERSION_MAJOR_JXHTTP 1

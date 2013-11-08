@@ -6,6 +6,7 @@ PODS:
     - JSONKit
     - OHAttributedLabel
   - JSONKit (1.5pre)
+  - JVFloatLabeledTextField (0.0.3)
   - JXHTTP (1.0.0)
   - MRProgress (0.2.1)
   - NSData+Base64 (1.0.0)
@@ -32,6 +33,7 @@ PODS:
 DEPENDENCIES:
   - CocoaSoundCloudAPI (= 1.0.1)
   - CocoaSoundCloudUI (= 1.0.5)
+  - JVFloatLabeledTextField (= 0.0.3)
   - MRProgress (~> 0.2)
   - SWTableViewCell (= 0.0.9)
   - TMTumblrSDK
@@ -40,6 +42,7 @@ SPEC CHECKSUMS:
   CocoaSoundCloudAPI: 71e8ac175772ed161bbff6f46f04b171136a8292
   CocoaSoundCloudUI: 7c145af797c4e9c4e5da34d211fd689020ecff86
   JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
+  JVFloatLabeledTextField: b1a2eb81a43dbe835e36ec7f4e7d9dbb721e5592
   JXHTTP: 04f027e55c252d206cf3fcc2a2bde3914a35d842
   MRProgress: 28c146612cd5ceb30a16d06216028beab125d926
   NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28

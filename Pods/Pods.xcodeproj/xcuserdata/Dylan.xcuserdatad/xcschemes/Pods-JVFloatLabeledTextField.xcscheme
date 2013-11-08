@@ -13,11 +13,11 @@
             buildForTesting = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
-               BlueprintIdentifier = "5A7AD0962FEE4232919AAE39"
-               BuildableName = "libPods-SWTableViewCell.a"
+               BlueprintIdentifier = "B7401F3DD7D944CC89631AF9"
+               BuildableName = "libPods-JVFloatLabeledTextField.a"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableIdentifier = "primary"
-               BlueprintName = "Pods-SWTableViewCell">
+               BlueprintName = "Pods-JVFloatLabeledTextField">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

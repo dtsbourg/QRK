@@ -32,6 +32,8 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
 
 @implementation SWUtilityButtonView
 
+
+
 #pragma mark - SWUtilityButonView initializers
 
 - (id)initWithUtilityButtons:(NSArray *)utilityButtons parentCell:(SWTableViewCell *)parentCell utilityButtonSelector:(SEL)utilityButtonSelector {
@@ -95,6 +97,8 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     CGFloat additionalRightPadding;
 }
 
+
+
 // Scroll view to be added to UITableViewCell
 @property (nonatomic, weak) UIScrollView *cellScrollView;
 
@@ -112,6 +116,13 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
 @end
 
 @implementation SWTableViewCell
+
+@synthesize trackArtist=_trackArtist;
+@synthesize trackFavs=_trackFavs;
+@synthesize trackIllustration=_trackIllustration;
+@synthesize trackBPM=_trackBPM;
+@synthesize trackName=_trackName;
+@synthesize trackPlays=_trackPlays;
 
 #pragma mark Initializers
 

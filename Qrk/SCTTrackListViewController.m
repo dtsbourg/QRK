@@ -327,6 +327,7 @@
                      
                      if (player==nil) {
                          player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
+                         [player setDelegate:self];
                          [player prepareToPlay];
                          [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                          [player play];

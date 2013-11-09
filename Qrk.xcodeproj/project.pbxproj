@@ -87,6 +87,7 @@
 		FC96A490182D33580038A5DE /* Pods-SWTableViewCell-dummy.m in Resources */ = {isa = PBXBuildFile; fileRef = FC96A488182D33580038A5DE /* Pods-SWTableViewCell-dummy.m */; };
 		FC96A491182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = FC96A489182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch */; };
 		FC96A494182D89C10038A5DE /* SCTSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */; };
+		FC96A497182EB11A0038A5DE /* quark_up_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = FC96A496182EB11A0038A5DE /* quark_up_banner.png */; };
 		FCA30561180C9AC3001C5EE8 /* SoundCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */; };
 		FCA30565180C9C2D001C5EE8 /* SCTTrackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA30563180C9C2D001C5EE8 /* SCTTrackListViewController.m */; };
 		FCA30566180C9C2D001C5EE8 /* SCTTrackListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA30564180C9C2D001C5EE8 /* SCTTrackListViewController.xib */; };
@@ -236,6 +237,7 @@
 		FC96A489182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pods-SWTableViewCell-prefix.pch"; sourceTree = "<group>"; };
 		FC96A492182D89C10038A5DE /* SCTSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTSubmissionViewController.h; sourceTree = "<group>"; };
 		FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTSubmissionViewController.m; sourceTree = "<group>"; };
+		FC96A496182EB11A0038A5DE /* quark_up_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quark_up_banner.png; path = ../../Desktop/quark_up_banner.png; sourceTree = "<group>"; };
 		FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SoundCloud.bundle; sourceTree = "<group>"; };
 		FCA30562180C9C2D001C5EE8 /* SCTTrackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTrackListViewController.h; sourceTree = "<group>"; };
 		FCA30563180C9C2D001C5EE8 /* SCTTrackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTTrackListViewController.m; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		FC23D2E11814431200C23DEE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FC96A496182EB11A0038A5DE /* quark_up_banner.png */,
 				FC23D2E2181443BF00C23DEE /* QUP_icon.png */,
 				FCA305B1181037FF001C5EE8 /* jorisd.png */,
 				FC23D2DB181442F600C23DEE /* quark_up.png */,
@@ -376,6 +379,15 @@
 			);
 			name = SWTableViewCell;
 			path = ../Pods/SWTableViewCell;
+			sourceTree = "<group>";
+		};
+		FC96A495182EA5F50038A5DE /* Submission */ = {
+			isa = PBXGroup;
+			children = (
+				FC96A492182D89C10038A5DE /* SCTSubmissionViewController.h */,
+				FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */,
+			);
+			name = Submission;
 			sourceTree = "<group>";
 		};
 		FCA3056F180DDC07001C5EE8 /* Buttons */ = {
@@ -597,8 +609,7 @@
 				FC503678182AAFB10022D187 /* Reachability.m */,
 				FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */,
 				FCFA3B20180C98D800484DE4 /* Main.storyboard */,
-				FC96A492182D89C10038A5DE /* SCTSubmissionViewController.h */,
-				FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */,
+				FC96A495182EA5F50038A5DE /* Submission */,
 				FCD5B73C1829867E00AD3D1F /* AppDelegate */,
 				FCD5B7381829862500AD3D1F /* Tumblr Feed */,
 				FC2C8C88182990D200AAC62D /* Settings and more */,
@@ -764,6 +775,7 @@
 				FCA3058C180DDCE9001C5EE8 /* 111-user.png in Resources */,
 				FC23D2DC181442F600C23DEE /* quark_up.png in Resources */,
 				FCA30587180DDCBF001C5EE8 /* 78-stopwatch.png in Resources */,
+				FC96A497182EB11A0038A5DE /* quark_up_banner.png in Resources */,
 				FCA3059C180F13DF001C5EE8 /* QUP.png in Resources */,
 				FC2C8C821829908A00AAC62D /* darkTexturedBackgroundPattern.png in Resources */,
 				FC2C8C871829908A00AAC62D /* DisclosureIndicator@2x.png in Resources */,

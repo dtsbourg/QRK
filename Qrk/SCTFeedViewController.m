@@ -78,7 +78,9 @@
         
         
         self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
-        self.tabBarController.tabBar.translucent=YES;
+        self.tabBarController.tabBar.translucent=NO;
+        [self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+
         
         
         [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
@@ -249,55 +251,68 @@
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - Submission
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)sendMail:(id)sender {
+    
+    // Email Subject
+    NSString *emailTitle = @"[QRK Submission]";
+    // Email Content
+    NSString *messageBody = [NSString stringWithFormat:@"<ul> \n"
+                             "<li> Title :  </li> \n"
+                             "<li> Artist :  </li> \n"
+                             "<li> Link : </li> \n"
+                             "<li> Name (optional) : </li> \n"
+                             "<li> Comment : </li> \n"
+                             "</ul>"];
+    NSData *data = UIImageJPEGRepresentation([UIImage imageNamed:@"quark_up_banner.png"], 0.5);
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:YES];
+    [mc addAttachmentData:data mimeType:@"image/png" fileName:@"quark_up_banner.png"];
+    
+    [mc setToRecipients:@[@"submission.quark.up@gmail.com"]];
+    
+    mc.navigationBar.tintColor=[UIColor whiteColor];
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:nil];
+    
 }
 
- */
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    UIAlertView *messageAlert;
+    
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail Cancelled !" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        case MFMailComposeResultSaved:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail Saved !" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        case MFMailComposeResultSent:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail Sent !" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        case MFMailComposeResultFailed:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail sent failure" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+
 
 @end

@@ -24,6 +24,16 @@
 {
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    
+    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}
+                                             forState:UIControlStateSelected];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    
+    
     return YES;
 }
 							

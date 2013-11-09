@@ -16,11 +16,20 @@ const static CGFloat kJVFieldFontSize = 16.0f;
 
 const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
 
-@interface SCTSubmissionViewController ()
+@interface SCTSubmissionViewController () {
+    NSString *trackTitle;
+    NSString *trackArtist;
+    NSString *comment;
+    NSString *location;
+    NSString *trackLink;
+    
+}
 
 @end
 
 @implementation SCTSubmissionViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -104,7 +113,7 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
                                                             self.view.frame.size.width - 2*kJVFieldHMargin,
                                                             kJVFieldHeight)];
     
-    descriptionField.placeholder = NSLocalizedString(@"Description", @"");
+    descriptionField.placeholder = NSLocalizedString(@"Comment", @"");
     descriptionField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
     descriptionField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     descriptionField.floatingLabelTextColor = floatingLabelColor;
@@ -128,6 +137,8 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
     linkField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
     linkField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     linkField.floatingLabelActiveTextColor = floatingLabelColor;
+    trackLink=linkField.text;
+    
     [self.view addSubview:linkField];
     
     
@@ -138,6 +149,60 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)sendMessage:(id)sender {
+    
+    // Email Subject
+    NSString *emailTitle = @"[QRK Submission]";
+    // Email Content
+    NSString *messageBody = [NSString stringWithFormat:@"<ul> \n"
+                             "<li> Title :  </li> \n"
+                             "<li> Artist :  </li> \n"
+                             "<li> Comment : </li> \n"
+                             "<li> Link : %@ </li> \n"
+                             "</ul>", trackLink];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:YES];
+    [mc setToRecipients:@[@"submission.quark.up@gmail.com"]];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:nil];
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    UIAlertView *messageAlert;
+    
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail Cancelled !" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        case MFMailComposeResultSaved:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail Saved !" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        case MFMailComposeResultSent:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail Sent !" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        case MFMailComposeResultFailed:
+            messageAlert = [[UIAlertView alloc]initWithTitle:@"Mail sent failure" message:@" " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [messageAlert show];
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 @end

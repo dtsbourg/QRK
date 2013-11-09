@@ -50,7 +50,8 @@
     self.navigationController.navigationBar.translucent=NO;
     
     self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
-    self.tabBarController.tabBar.translucent=YES;
+    self.tabBarController.tabBar.translucent=NO;
+    [self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
     
     SCAccount *account = [SCSoundCloud account];
     

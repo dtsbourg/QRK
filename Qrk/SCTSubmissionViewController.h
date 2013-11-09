@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface SCTSubmissionViewController : UIViewController
+@interface SCTSubmissionViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 @end

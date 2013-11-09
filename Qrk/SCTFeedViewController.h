@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import "Reachability.h"
 
 
-@interface SCTFeedViewController : UITableViewController
+@interface SCTFeedViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray *posts;
 -(BOOL) connected;

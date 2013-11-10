@@ -17,6 +17,8 @@
 
 @interface SCTTrackListViewController () {
     NSString *resourceURL;
+    NSArray* trackArray;
+    NSInteger selectedIndex;
 }
 
 
@@ -221,7 +223,29 @@
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    NSLog(@"I'm done");
+    
+    NSDictionary *track = [trackArray objectAtIndex:selectedIndex];
+    NSString *streamURL = [track objectForKey:@"stream_url"];
+    
+    
+    SCAccount *account = [SCSoundCloud account];
+    
+    [SCRequest performMethod:SCRequestMethodGET
+                  onResource:[NSURL URLWithString:streamURL]
+             usingParameters:nil
+                 withAccount:account
+      sendingProgressHandler:nil
+             responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                 
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     
+                     
+                         [self.player prepareToPlay];
+                         [self.player play];
+                     
+                 });
+             }];
+
     
 }
 
@@ -312,6 +336,13 @@
     
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
     NSString *streamURL = [track objectForKey:@"stream_url"];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row,indexPath.row+2)];
+    trackArray = [self.tracks objectsAtIndexes:indexSet];
+    selectedIndex = indexPath.row;
+    
+    
+    NSLog(@"%@", indexSet);
+                                
     
     SCAccount *account = [SCSoundCloud account];
     

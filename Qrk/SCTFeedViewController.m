@@ -168,7 +168,7 @@
         cell.articleTrackTitle.text=[post objectForKey:@"track_name"];
         
         //Gist
-        NSMutableString* gistString = (NSMutableString*) [[post objectForKey:@"caption"] kv_decodeHTMLCharacterEntities];
+        NSMutableString* gistString =  [[[post objectForKey:@"caption"] kv_decodeHTMLCharacterEntities] mutableCopy];
         NSError*paragError=nil; NSError*linkError=nil;
         
         NSRegularExpression *regexParagraph = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*p>"

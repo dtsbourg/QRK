@@ -227,7 +227,6 @@
     NSDictionary *track = [trackArray objectAtIndex:selectedIndex];
     NSString *streamURL = [track objectForKey:@"stream_url"];
     
-    
     SCAccount *account = [SCSoundCloud account];
     
     [SCRequest performMethod:SCRequestMethodGET
@@ -239,9 +238,10 @@
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
                      
-                     
-                         [self.player prepareToPlay];
-                         [self.player play];
+                    AVAudioPlayer* playerNext = [[AVAudioPlayer alloc] initWithData:data error:nil];
+                    [playerNext setDelegate:self];
+                    [playerNext prepareToPlay];
+                    [playerNext play];
                      
                  });
              }];

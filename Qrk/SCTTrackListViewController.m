@@ -28,6 +28,7 @@
 
 @synthesize tracks;
 @synthesize player;
+@synthesize queuePlayer;
 
 
 # pragma mark - View
@@ -238,11 +239,11 @@
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
                      
-                    AVAudioPlayer* playerNext = [[AVAudioPlayer alloc] initWithData:data error:nil];
-                    [playerNext setDelegate:self];
-                    [playerNext prepareToPlay];
-                    [playerNext play];
-                     
+                    self.player = [[AVAudioPlayer alloc] initWithData:data error:nil];
+                    [self.player setDelegate:self];
+                    [self.player prepareToPlay];
+                    [self.player play];
+                     NSLog(@"%@",streamURL);
                  });
              }];
 
@@ -336,13 +337,11 @@
     
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
     NSString *streamURL = [track objectForKey:@"stream_url"];
+    
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row,indexPath.row+2)];
     trackArray = [self.tracks objectsAtIndexes:indexSet];
     selectedIndex = indexPath.row;
     
-    
-    NSLog(@"%@", indexSet);
-                                
     
     SCAccount *account = [SCSoundCloud account];
     
@@ -363,6 +362,7 @@
                          [player prepareToPlay];
                          [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                          [player play];
+                         NSLog(@"%@",streamURL);
                      }
                  });
              }];

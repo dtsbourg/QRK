@@ -25,12 +25,6 @@
 // Please contact the author.
 // Version: 1.5pre.
 
-// JVFloatLabeledTextField
-#define COCOAPODS_POD_AVAILABLE_JVFloatLabeledTextField
-#define COCOAPODS_VERSION_MAJOR_JVFloatLabeledTextField 0
-#define COCOAPODS_VERSION_MINOR_JVFloatLabeledTextField 0
-#define COCOAPODS_VERSION_PATCH_JVFloatLabeledTextField 3
-
 // JXHTTP
 #define COCOAPODS_POD_AVAILABLE_JXHTTP
 #define COCOAPODS_VERSION_MAJOR_JXHTTP 1
@@ -61,11 +55,17 @@
 #define COCOAPODS_VERSION_MINOR_OHAttributedLabel 5
 #define COCOAPODS_VERSION_PATCH_OHAttributedLabel 3
 
-// SWTableViewCell
-#define COCOAPODS_POD_AVAILABLE_SWTableViewCell
-#define COCOAPODS_VERSION_MAJOR_SWTableViewCell 0
-#define COCOAPODS_VERSION_MINOR_SWTableViewCell 0
-#define COCOAPODS_VERSION_PATCH_SWTableViewCell 9
+// SDWebImage
+#define COCOAPODS_POD_AVAILABLE_SDWebImage
+#define COCOAPODS_VERSION_MAJOR_SDWebImage 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage 4
+#define COCOAPODS_VERSION_PATCH_SDWebImage 0
+
+// SDWebImage/Core
+#define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
+#define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 4
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 0
 
 // TMTumblrSDK
 #define COCOAPODS_POD_AVAILABLE_TMTumblrSDK

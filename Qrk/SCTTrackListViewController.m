@@ -11,6 +11,7 @@
 #import "SCTTrackCell.h"
 #import "MRProgress.h"
 #import "Reachability.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -311,21 +312,21 @@
     cell.trackArtist.text =[userInfo objectForKey:@"username"];
     
     //TRACK ILLUSTRATION
-    NSData*imageAlloc;
     NSString*artworkURL=[track objectForKey:@"artwork_url"];
     
     if (!([artworkURL isKindOfClass:[NSNull class]])) {
         
-        imageAlloc=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:artworkURL]];
-        
-        if (imageAlloc) {
-            cell.trackIllustration.image = [UIImage imageWithData:imageAlloc];
-        }
+            [cell.trackIllustration setImageWithURL:[NSURL URLWithString:artworkURL]
+                           placeholderImage:[UIImage imageNamed:@"quark_up.png"]];
     }
     
     else {
-        cell.trackIllustration.image = [UIImage imageNamed:@"QUP.png"];
+        cell.trackIllustration.image = [UIImage imageNamed:@"quark_up.png"];
     }
+    
+    
+    
+    
     
     return cell;
 }

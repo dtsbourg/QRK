@@ -7,13 +7,13 @@
 //
 
 #import "SCTFeedViewController.h"
-#import "SCTTrackListViewController.h"
 #import "SCUI.h"
 #import "SCTViewcell.h"
 #import "TMAPIClient.h"
 #import "NSString+HTML.h"
 #import "SCTPersonalInfoViewController.h"
 #import "MRProgress.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #define API_KEY @"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D"
 #define PAGES 10
@@ -202,7 +202,8 @@
             UIImage *illustration=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
             
             if (illustration) {
-                cell.articleTrackIllustration.image=illustration;
+                [cell.articleTrackIllustration setImageWithURL:url
+                                       placeholderImage:[UIImage imageNamed:@"quark_up.png"]];
                 didGetIllustration=YES;
             }
         }
@@ -213,7 +214,8 @@
             UIImage *illustration=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
             
             if (illustration) {
-                cell.articleTrackIllustration.image=illustration;
+                [cell.articleTrackIllustration setImageWithURL:url
+                                              placeholderImage:[UIImage imageNamed:@"quark_up.png"]];
                 didGetIllustration=YES;
             }
         

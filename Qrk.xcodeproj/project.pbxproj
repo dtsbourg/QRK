@@ -80,12 +80,6 @@
 		FC2C8C871829908A00AAC62D /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2C8C6F1829908A00AAC62D /* DisclosureIndicator@2x.png */; };
 		FC503679182AAFB10022D187 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FC503678182AAFB10022D187 /* Reachability.m */; };
 		FC50367B182AAFDB0022D187 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC50367A182AAFDB0022D187 /* SystemConfiguration.framework */; };
-		FC96A48C182D33580038A5DE /* SWTableViewCell.h in Resources */ = {isa = PBXBuildFile; fileRef = FC96A484182D33580038A5DE /* SWTableViewCell.h */; };
-		FC96A48D182D33580038A5DE /* SWTableViewCell.m in Resources */ = {isa = PBXBuildFile; fileRef = FC96A485182D33580038A5DE /* SWTableViewCell.m */; };
-		FC96A48E182D33580038A5DE /* Pods-SWTableViewCell.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FC96A486182D33580038A5DE /* Pods-SWTableViewCell.xcconfig */; };
-		FC96A48F182D33580038A5DE /* Pods-SWTableViewCell-Private.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FC96A487182D33580038A5DE /* Pods-SWTableViewCell-Private.xcconfig */; };
-		FC96A490182D33580038A5DE /* Pods-SWTableViewCell-dummy.m in Resources */ = {isa = PBXBuildFile; fileRef = FC96A488182D33580038A5DE /* Pods-SWTableViewCell-dummy.m */; };
-		FC96A491182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = FC96A489182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch */; };
 		FC96A494182D89C10038A5DE /* SCTSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */; };
 		FC96A497182EB11A0038A5DE /* quark_up_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = FC96A496182EB11A0038A5DE /* quark_up_banner.png */; };
 		FC99DF3B18337D100086F833 /* fxguEjG4ax6B_m.png in Resources */ = {isa = PBXBuildFile; fileRef = FC99DF3A18337D100086F833 /* fxguEjG4ax6B_m.png */; };
@@ -230,12 +224,6 @@
 		FC503677182AAFB10022D187 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FC503678182AAFB10022D187 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FC50367A182AAFDB0022D187 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		FC96A484182D33580038A5DE /* SWTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SWTableViewCell.h; path = SWTableViewCell/SWTableViewCell.h; sourceTree = "<group>"; };
-		FC96A485182D33580038A5DE /* SWTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SWTableViewCell.m; path = SWTableViewCell/SWTableViewCell.m; sourceTree = "<group>"; };
-		FC96A486182D33580038A5DE /* Pods-SWTableViewCell.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-SWTableViewCell.xcconfig"; sourceTree = "<group>"; };
-		FC96A487182D33580038A5DE /* Pods-SWTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-SWTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
-		FC96A488182D33580038A5DE /* Pods-SWTableViewCell-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-SWTableViewCell-dummy.m"; sourceTree = "<group>"; };
-		FC96A489182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-SWTableViewCell-prefix.pch"; sourceTree = "<group>"; };
 		FC96A492182D89C10038A5DE /* SCTSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTSubmissionViewController.h; sourceTree = "<group>"; };
 		FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTSubmissionViewController.m; sourceTree = "<group>"; };
 		FC96A496182EB11A0038A5DE /* quark_up_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quark_up_banner.png; path = ../../Desktop/quark_up_banner.png; sourceTree = "<group>"; };
@@ -361,29 +349,6 @@
 			name = "Settings and more";
 			sourceTree = "<group>";
 		};
-		FC96A48A182D33580038A5DE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FC96A486182D33580038A5DE /* Pods-SWTableViewCell.xcconfig */,
-				FC96A487182D33580038A5DE /* Pods-SWTableViewCell-Private.xcconfig */,
-				FC96A488182D33580038A5DE /* Pods-SWTableViewCell-dummy.m */,
-				FC96A489182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch */,
-			);
-			name = "Support Files";
-			path = ..;
-			sourceTree = "<group>";
-		};
-		FC96A48B182D33580038A5DE /* SWTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				FC96A484182D33580038A5DE /* SWTableViewCell.h */,
-				FC96A485182D33580038A5DE /* SWTableViewCell.m */,
-				FC96A48A182D33580038A5DE /* Support Files */,
-			);
-			name = SWTableViewCell;
-			path = ../Pods/SWTableViewCell;
-			sourceTree = "<group>";
-		};
 		FC96A495182EA5F50038A5DE /* Submission */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,7 +465,6 @@
 		FCD5B735182985F500AD3D1F /* Tracks */ = {
 			isa = PBXGroup;
 			children = (
-				FC96A48B182D33580038A5DE /* SWTableViewCell */,
 				FCD5B7361829860400AD3D1F /* Cell */,
 				FCD5B7371829860C00AD3D1F /* ViewController */,
 			);
@@ -746,7 +710,6 @@
 				FC2C8C781829908A00AAC62D /* cancelUpload.png in Resources */,
 				FC2C8C3F1829907E00AAC62D /* retry.png in Resources */,
 				FC2C8C491829907E00AAC62D /* service_tumblr.png in Resources */,
-				FC96A491182D33580038A5DE /* Pods-SWTableViewCell-prefix.pch in Resources */,
 				FC2C8C7C1829908A00AAC62D /* cloud.png in Resources */,
 				FC2C8C571829907E00AAC62D /* switch_slider.png in Resources */,
 				FC2C8C7A1829908A00AAC62D /* close.png in Resources */,
@@ -782,7 +745,6 @@
 				FC23D2E51814444F00C23DEE /* quark_up_launch.png in Resources */,
 				FCA3056C180DDBE5001C5EE8 /* 14-tag.png in Resources */,
 				FC2C8C751829908A00AAC62D /* cancel_dark@2x.png in Resources */,
-				FC96A490182D33580038A5DE /* Pods-SWTableViewCell-dummy.m in Resources */,
 				FCA3058C180DDCE9001C5EE8 /* 111-user.png in Resources */,
 				FC23D2DC181442F600C23DEE /* quark_up.png in Resources */,
 				FCA30587180DDCBF001C5EE8 /* 78-stopwatch.png in Resources */,
@@ -798,7 +760,6 @@
 				FCA30561180C9AC3001C5EE8 /* SoundCloud.bundle in Resources */,
 				FC2C8C741829908A00AAC62D /* cancel_dark.png in Resources */,
 				FC2C8C351829907E00AAC62D /* iphone@2x.png in Resources */,
-				FC96A48C182D33580038A5DE /* SWTableViewCell.h in Resources */,
 				FCA30575180DDC3F001C5EE8 /* 06-magnify.png in Resources */,
 				FCA3058F180DDCF7001C5EE8 /* 120-headphones.png in Resources */,
 				FCA30576180DDC3F001C5EE8 /* 07-map-marker.png in Resources */,
@@ -821,9 +782,7 @@
 				FC2C8C421829907E00AAC62D /* service_facebook_page@2x.png in Resources */,
 				FC2C8C4A1829907E00AAC62D /* service_tumblr@2x.png in Resources */,
 				FC2C8C431829907E00AAC62D /* service_facebook_profile.png in Resources */,
-				FC96A48F182D33580038A5DE /* Pods-SWTableViewCell-Private.xcconfig in Resources */,
 				FC2C8C541829907E00AAC62D /* switch_mask.png in Resources */,
-				FC96A48D182D33580038A5DE /* SWTableViewCell.m in Resources */,
 				FCA30578180DDC3F001C5EE8 /* 11-clock.png in Resources */,
 				FCA30589180DDCD9001C5EE8 /* 106-sliders.png in Resources */,
 				FCA30581180DDC70001C5EE8 /* 29-heart.png in Resources */,
@@ -832,7 +791,6 @@
 				FCFA3B22180C98D800484DE4 /* Main.storyboard in Resources */,
 				FC2C8C311829907E00AAC62D /* input.png in Resources */,
 				FC2C8C2E1829907E00AAC62D /* facebook@2x.png in Resources */,
-				FC96A48E182D33580038A5DE /* Pods-SWTableViewCell.xcconfig in Resources */,
 				FCA30583180DDC97001C5EE8 /* 58-bookmark.png in Resources */,
 				FC2C8C481829907E00AAC62D /* service_myspace@2x.png in Resources */,
 				FC23D2E3181443BF00C23DEE /* QUP_icon.png in Resources */,

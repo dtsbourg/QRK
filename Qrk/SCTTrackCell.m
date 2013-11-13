@@ -16,6 +16,7 @@
 @synthesize trackBPM=_trackBPM;
 @synthesize trackName=_trackName;
 @synthesize trackPlays=_trackPlays;
+@synthesize trackWaveForm=_trackWaveForm;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

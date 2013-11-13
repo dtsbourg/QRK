@@ -340,8 +340,7 @@
     
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row,indexPath.row+2)];
     trackArray = [self.tracks objectsAtIndexes:indexSet];
-    selectedIndex = indexPath.row;
-    
+    selectedIndex = indexPath.row;    
     
     SCAccount *account = [SCSoundCloud account];
     

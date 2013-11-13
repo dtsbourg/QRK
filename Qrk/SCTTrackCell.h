@@ -15,6 +15,7 @@
 @property(nonatomic, weak) IBOutlet UILabel *trackBPM;
 @property(nonatomic, weak) IBOutlet UILabel *trackPlays;
 @property(nonatomic, weak) IBOutlet UILabel *trackFavs;
-@property(nonatomic, weak) IBOutlet UIImageView * trackIllustration;
+@property(nonatomic, weak) IBOutlet UIImageView *trackIllustration;
+@property(nonatomic, weak) IBOutlet UIImageView *trackWaveForm;
 
 @end

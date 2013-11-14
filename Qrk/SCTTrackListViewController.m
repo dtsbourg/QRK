@@ -324,10 +324,6 @@
         cell.trackIllustration.image = [UIImage imageNamed:@"quark_up.png"];
     }
     
-    
-    
-    
-    
     return cell;
 }
 

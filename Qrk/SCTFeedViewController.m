@@ -80,7 +80,6 @@
         self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
         self.tabBarController.tabBar.translucent=NO;
         [self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
-
         
         
         [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
@@ -135,12 +134,12 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    if ([self connected]) return 1;
+    else return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     if ([self connected]) return [self.posts count];
     else return 0;
 }
@@ -190,34 +189,34 @@
                              withTemplate:@""];
         
         cell.articleGist.text=gistString;
+        CGRect rect = cell.articleGist.frame;
+        rect.size.height = cell.articleGist.contentSize.height;
+        cell.articleGist.frame = rect;
             
         }
         
         //Illustration
         bool didGetIllustration=NO;
         
-        if ([[post objectForKey:@"type" ]isEqualToString:@"video"]) {
+        if ([[post objectForKey:@"type"]isEqualToString:@"video"]) {
             
             url= [NSURL URLWithString:[post objectForKey:@"thumbnail_url"]];
-            UIImage *illustration=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
-            
-            if (illustration) {
+
                 [cell.articleTrackIllustration setImageWithURL:url
                                        placeholderImage:[UIImage imageNamed:@"quark_up.png"]];
                 didGetIllustration=YES;
-            }
         }
         
         else if ([[post objectForKey:@"type" ]isEqualToString:@"audio"]) {
             
             url= [NSURL URLWithString:[post objectForKey:@"album_art"]];
-            UIImage *illustration=[UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:url]];
+           
             
-            if (illustration) {
+         
                 [cell.articleTrackIllustration setImageWithURL:url
                                               placeholderImage:[UIImage imageNamed:@"quark_up.png"]];
                 didGetIllustration=YES;
-            }
+            
         
         }
         
@@ -261,12 +260,12 @@
     NSString *emailTitle = @"[QRK Submission]";
     // Email Content
     NSString *messageBody = [NSString stringWithFormat:@"<ul> \n"
-                             "<li> Title :  </li> \n"
-                             "<li> Artist :  </li> \n"
-                             "<li> Link : </li> \n"
-                             "<li> Name (optional) : </li> \n"
-                             "<li> Comment : </li> \n"
+                             "<li> Title :  </li> <hr /> \n"
+                             "<li> Artist :  </li> <hr /> \n"
+                             "<li> Link : </li>  <hr />\n"
+                             "<li> Comment : </li> <hr /> \n"
                              "</ul>"];
+    
     NSData *data = UIImageJPEGRepresentation([UIImage imageNamed:@"quark_up_banner.png"], 0.5);
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
@@ -313,8 +312,5 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
-
-
-
 
 @end

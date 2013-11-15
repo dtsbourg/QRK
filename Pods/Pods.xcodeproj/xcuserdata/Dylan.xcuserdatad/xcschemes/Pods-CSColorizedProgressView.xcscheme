@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
-               BlueprintName = "Pods-NXOAuth2Client"
+               BlueprintName = "Pods-CSColorizedProgressView"
                BuildableIdentifier = "primary"
-               BuildableName = "libPods-NXOAuth2Client.a"
+               BuildableName = "libPods-CSColorizedProgressView.a"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BlueprintIdentifier = "E02C84E2ACDE46A490945486">
+               BlueprintIdentifier = "1B2ACAA7144A4D5E8950373B">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

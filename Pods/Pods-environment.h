@@ -6,6 +6,12 @@
 // project.
 
 
+// CSColorizedProgressView
+#define COCOAPODS_POD_AVAILABLE_CSColorizedProgressView
+#define COCOAPODS_VERSION_MAJOR_CSColorizedProgressView 1
+#define COCOAPODS_VERSION_MINOR_CSColorizedProgressView 0
+#define COCOAPODS_VERSION_PATCH_CSColorizedProgressView 0
+
 // CocoaSoundCloudAPI
 #define COCOAPODS_POD_AVAILABLE_CocoaSoundCloudAPI
 #define COCOAPODS_VERSION_MAJOR_CocoaSoundCloudAPI 1

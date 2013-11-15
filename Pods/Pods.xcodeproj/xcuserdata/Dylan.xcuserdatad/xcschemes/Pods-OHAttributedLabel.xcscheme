@@ -9,43 +9,43 @@
          <BuildActionEntry
             buildForArchiving = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
             buildForTesting = "YES"
+            buildForProfiling = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
-               BuildableName = "libPods-OHAttributedLabel.a"
                BlueprintName = "Pods-OHAttributedLabel"
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8F19AEE06D1E495A9A3A9304"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BuildableName = "libPods-OHAttributedLabel.a"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BlueprintIdentifier = "AE3494E694A343C286BFA34E">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       buildConfiguration = "Debug"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       allowLocationSimulation = "YES"
       debugDocumentVersioning = "YES"
-      ignoresPersistentStateOnLaunch = "NO"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      ignoresPersistentStateOnLaunch = "NO"
       buildConfiguration = "Debug"
       launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      useCustomWorkingDirectory = "NO">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      savedToolIdentifier = ""
       debugDocumentVersioning = "YES"
       buildConfiguration = "Release"
-      savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       shouldUseLaunchSchemeArgsEnv = "YES">
    </ProfileAction>

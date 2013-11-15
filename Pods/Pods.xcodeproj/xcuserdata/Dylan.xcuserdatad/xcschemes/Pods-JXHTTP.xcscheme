@@ -9,43 +9,43 @@
          <BuildActionEntry
             buildForArchiving = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
             buildForTesting = "YES"
+            buildForProfiling = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
-               BuildableName = "libPods-JXHTTP.a"
                BlueprintName = "Pods-JXHTTP"
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7BF09CA2F554E2BBB44F0F0"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BuildableName = "libPods-JXHTTP.a"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BlueprintIdentifier = "06DE128B0DE04B74A6EF08E5">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       buildConfiguration = "Debug"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       allowLocationSimulation = "YES"
       debugDocumentVersioning = "YES"
-      ignoresPersistentStateOnLaunch = "NO"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      ignoresPersistentStateOnLaunch = "NO"
       buildConfiguration = "Debug"
       launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      useCustomWorkingDirectory = "NO">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      savedToolIdentifier = ""
       debugDocumentVersioning = "YES"
       buildConfiguration = "Release"
-      savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       shouldUseLaunchSchemeArgsEnv = "YES">
    </ProfileAction>

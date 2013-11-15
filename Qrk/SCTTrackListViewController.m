@@ -12,6 +12,7 @@
 #import "MRProgress.h"
 #import "Reachability.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "CHYPorgressImageView.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -324,6 +325,20 @@
         cell.trackIllustration.image = [UIImage imageNamed:@"quark_up.png"];
     }
     
+    NSString*waveFormURL=[track objectForKey:@"waveform_url"];
+    
+    if (!([waveFormURL isKindOfClass:[NSNull class]])) {
+        
+        [cell.trackWaveForm setImageWithURL:[NSURL URLWithString:waveFormURL]
+                               placeholderImage:[UIImage imageNamed:@"fxguEjG4ax6B_m.png"]];
+    }
+    
+    else {
+        cell.trackWaveForm.image = [UIImage imageNamed:@"fxguEjG4ax6B_m.png"];
+    }
+    
+    
+    
     return cell;
 }
 
@@ -332,12 +347,18 @@
 {
     [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
     
+    SCTTrackCell *cell= (SCTTrackCell*)[tableView cellForRowAtIndexPath:indexPath];
+    cell.trackWaveForm.verticalProgress=NO;
+    
+    
+   
+    
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
     NSString *streamURL = [track objectForKey:@"stream_url"];
     
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row,indexPath.row+2)];
     trackArray = [self.tracks objectsAtIndexes:indexSet];
-    selectedIndex = indexPath.row;    
+    selectedIndex = indexPath.row;
     
     SCAccount *account = [SCSoundCloud account];
     
@@ -358,7 +379,8 @@
                          [player prepareToPlay];
                          [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                          [player play];
-                         NSLog(@"%@",streamURL);
+                         cell.trackWaveForm.progress=0.5f;
+                         NSLog(@"%f",cell.trackWaveForm.progress);
                      }
                  });
              }];

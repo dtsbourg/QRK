@@ -168,7 +168,7 @@
         
         //Gist
         NSMutableString* gistString =  [[[post objectForKey:@"caption"] kv_decodeHTMLCharacterEntities] mutableCopy];
-        NSError*paragError=nil; NSError*linkError=nil;
+        NSError*paragError=nil; NSError*linkError=nil; NSError*EmError=nil; NSError*BrError=nil;
         
         NSRegularExpression *regexParagraph = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*p>"
                                                                                         options:NSRegularExpressionCaseInsensitive
@@ -176,7 +176,13 @@
         NSRegularExpression *regexLink = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*a[^>]*>"
                                                                                    options:NSRegularExpressionCaseInsensitive
                                                                                      error:&linkError];
-        if (!linkError && !paragError) {
+        NSRegularExpression *regexEm = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*em>"
+                                                                                   options:NSRegularExpressionCaseInsensitive
+                                                                                     error:&EmError];
+        NSRegularExpression *regexBr = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*br/>"
+                                                                                 options:NSRegularExpressionCaseInsensitive
+                                                                                   error:&BrError];
+        if (!linkError && !paragError && gistString && !BrError && !EmError) {
             
         [regexParagraph replaceMatchesInString:gistString
                                        options:0
@@ -187,6 +193,16 @@
                                   options:0
                                     range:NSMakeRange(0, gistString.length)
                              withTemplate:@""];
+        [regexEm replaceMatchesInString:gistString
+                                  options:0
+                                    range:NSMakeRange(0, gistString.length)
+                             withTemplate:@""];
+            
+        [regexBr replaceMatchesInString:gistString
+                                  options:0
+                                    range:NSMakeRange(0, gistString.length)
+                             withTemplate:@""];
+            
         
         cell.articleGist.text=gistString;
         CGRect rect = cell.articleGist.frame;
@@ -241,6 +257,37 @@
         NSString *month = [monthFormat stringFromDate:postDate];
         
         cell.articleDate.text=[NSString stringWithFormat:@"%@ %ld, %ld",month, (long)[dateComps day], (long)[dateComps year]];
+    }
+    
+    
+    //End of scrolling
+    if(indexPath.row == [self.posts count]-1) {
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            NSError *error = nil;
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/quark-up.tumblr.com/posts?api_key=%@&limit=%d",API_KEY, PAGES+20 ]];
+            NSString *json = [NSString stringWithContentsOfURL:url
+                                                      encoding:NSUTF8StringEncoding
+                                                         error:&error];
+            
+            if(!error) {
+                NSData *jsonData = [json dataUsingEncoding:NSISOLatin1StringEncoding];
+                NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                         options:kNilOptions
+                                                                           error:&error];
+                
+                
+                NSDictionary *result=[jsonDict objectForKey:@"response"];
+                self.posts=(NSArray*)[result objectForKey:@"posts"];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.tableView reloadData];
+                    [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
+                });
+            }
+        });
+
     }
         
     return cell;

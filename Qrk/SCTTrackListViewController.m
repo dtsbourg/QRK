@@ -347,12 +347,6 @@
 {
     [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
     
-    SCTTrackCell *cell= (SCTTrackCell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.trackWaveForm.verticalProgress=NO;
-    
-    
-   
-    
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
     NSString *streamURL = [track objectForKey:@"stream_url"];
     
@@ -379,14 +373,10 @@
                          [player prepareToPlay];
                          [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                          [player play];
-                         cell.trackWaveForm.progress=0.5f;
-                         NSLog(@"%f",cell.trackWaveForm.progress);
                      }
                  });
              }];
 }
-
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

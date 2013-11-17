@@ -89,7 +89,7 @@
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
             NSError *error = nil;
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/quark-up.tumblr.com/posts?api_key=%@&limit=%d",API_KEY, PAGES ]];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.tumblr.com/v2/blog/quark-up.tumblr.com/posts?api_key=%@&limit=%d",API_KEY, PAGES]];
             NSString *json = [NSString stringWithContentsOfURL:url
                                                       encoding:NSUTF8StringEncoding
                                                          error:&error];
@@ -202,7 +202,7 @@
                                   options:0
                                     range:NSMakeRange(0, gistString.length)
                              withTemplate:@""];
-            
+        
         
         cell.articleGist.text=gistString;
         CGRect rect = cell.articleGist.frame;
@@ -281,9 +281,7 @@
                 self.posts=(NSArray*)[result objectForKey:@"posts"];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    
                     [self.tableView reloadData];
-                    [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                 });
             }
         });
@@ -310,8 +308,8 @@
                              "<li> Title :  </li> <hr /> \n"
                              "<li> Artist :  </li> <hr /> \n"
                              "<li> Link : </li>  <hr />\n"
-                             "<li> Comment : </li> <hr /> \n"
-                             "</ul>"];
+                             "<li> Comment : </li> </ul>  \n"
+                             "<hr />"];
     
     NSData *data = UIImageJPEGRepresentation([UIImage imageNamed:@"quark_up_banner.png"], 0.5);
     

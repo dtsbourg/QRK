@@ -12,7 +12,6 @@
 #import "MRProgress.h"
 #import "Reachability.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "CHYPorgressImageView.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -32,6 +31,18 @@
 @synthesize player;
 @synthesize queuePlayer;
 
+- (IBAction)swipeLeft:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Swipe"
+                          message:@"Direction Left"
+                          delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+
+    
+}
 
 # pragma mark - View
 
@@ -246,7 +257,6 @@
                     [self.player setDelegate:self];
                     [self.player prepareToPlay];
                     [self.player play];
-                     NSLog(@"%@",streamURL);
                  });
              }];
 

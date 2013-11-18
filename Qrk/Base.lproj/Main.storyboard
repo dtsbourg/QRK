@@ -293,6 +293,7 @@
         <!--Track List View Controller - QRK-->
         <scene sceneID="CTT-b3-PGf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0AU-zL-LU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="MbT-zN-4HA" customClass="SCTTrackListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ajg-Py-PA2">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
@@ -319,6 +320,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -339,7 +341,6 @@
                         <outlet property="accountSegment" destination="XQb-NR-Agn" id="OHx-lv-Lss"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0AU-zL-LU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1217" y="422"/>
         </scene>

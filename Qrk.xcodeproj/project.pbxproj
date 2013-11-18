@@ -82,7 +82,7 @@
 		FC50367B182AAFDB0022D187 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC50367A182AAFDB0022D187 /* SystemConfiguration.framework */; };
 		FC96A494182D89C10038A5DE /* SCTSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */; };
 		FC96A497182EB11A0038A5DE /* quark_up_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = FC96A496182EB11A0038A5DE /* quark_up_banner.png */; };
-		FC96BF241836722C00F2E402 /* CHYPorgressImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC96BF231836722C00F2E402 /* CHYPorgressImageView.m */; };
+		FC96BF26183ABB9100F2E402 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC96BF25183ABB9100F2E402 /* Social.framework */; };
 		FC99DF3B18337D100086F833 /* fxguEjG4ax6B_m.png in Resources */ = {isa = PBXBuildFile; fileRef = FC99DF3A18337D100086F833 /* fxguEjG4ax6B_m.png */; };
 		FCA30561180C9AC3001C5EE8 /* SoundCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */; };
 		FCA30565180C9C2D001C5EE8 /* SCTTrackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA30563180C9C2D001C5EE8 /* SCTTrackListViewController.m */; };
@@ -228,8 +228,7 @@
 		FC96A492182D89C10038A5DE /* SCTSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTSubmissionViewController.h; sourceTree = "<group>"; };
 		FC96A493182D89C10038A5DE /* SCTSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTSubmissionViewController.m; sourceTree = "<group>"; };
 		FC96A496182EB11A0038A5DE /* quark_up_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quark_up_banner.png; path = ../../Desktop/quark_up_banner.png; sourceTree = "<group>"; };
-		FC96BF221836722C00F2E402 /* CHYPorgressImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHYPorgressImageView.h; sourceTree = "<group>"; };
-		FC96BF231836722C00F2E402 /* CHYPorgressImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHYPorgressImageView.m; sourceTree = "<group>"; };
+		FC96BF25183ABB9100F2E402 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FC99DF3A18337D100086F833 /* fxguEjG4ax6B_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fxguEjG4ax6B_m.png; path = ../../Downloads/fxguEjG4ax6B_m.png; sourceTree = "<group>"; };
 		FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SoundCloud.bundle; sourceTree = "<group>"; };
 		FCA30562180C9C2D001C5EE8 /* SCTTrackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTTrackListViewController.h; sourceTree = "<group>"; };
@@ -301,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC96BF26183ABB9100F2E402 /* Social.framework in Frameworks */,
 				FC50367B182AAFDB0022D187 /* SystemConfiguration.framework in Frameworks */,
 				FCA30568180CA3ED001C5EE8 /* AVFoundation.framework in Frameworks */,
 				FCFA3B82180C9A4400484DE4 /* AddressBook.framework in Frameworks */,
@@ -564,6 +564,7 @@
 		FCFA3B0D180C98D800484DE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC96BF25183ABB9100F2E402 /* Social.framework */,
 				FC50367A182AAFDB0022D187 /* SystemConfiguration.framework */,
 				FCA30567180CA3ED001C5EE8 /* AVFoundation.framework */,
 				FCFA3B7C180C9A4400484DE4 /* AddressBook.framework */,
@@ -584,8 +585,6 @@
 		FCFA3B14180C98D800484DE4 /* Qrk */ = {
 			isa = PBXGroup;
 			children = (
-				FC96BF221836722C00F2E402 /* CHYPorgressImageView.h */,
-				FC96BF231836722C00F2E402 /* CHYPorgressImageView.m */,
 				FCA30560180C9AC3001C5EE8 /* SoundCloud.bundle */,
 				FCFA3B20180C98D800484DE4 /* Main.storyboard */,
 				FCC9FF6218301BC7001D21FA /* Reachability */,
@@ -864,7 +863,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCFA3B1B180C98D800484DE4 /* main.m in Sources */,
-				FC96BF241836722C00F2E402 /* CHYPorgressImageView.m in Sources */,
 				FCA305A8181004B6001C5EE8 /* SCTFeedViewController.m in Sources */,
 				FCA30565180C9C2D001C5EE8 /* SCTTrackListViewController.m in Sources */,
 				FC96A494182D89C10038A5DE /* SCTSubmissionViewController.m in Sources */,

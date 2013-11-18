@@ -226,14 +226,10 @@
         else if ([[post objectForKey:@"type" ]isEqualToString:@"audio"]) {
             
             url= [NSURL URLWithString:[post objectForKey:@"album_art"]];
-           
-            
          
                 [cell.articleTrackIllustration setImageWithURL:url
                                               placeholderImage:[UIImage imageNamed:@"quark_up.png"]];
                 didGetIllustration=YES;
-            
-        
         }
         
         else if (!didGetIllustration) {
@@ -258,7 +254,6 @@
         
         cell.articleDate.text=[NSString stringWithFormat:@"%@ %ld, %ld",month, (long)[dateComps day], (long)[dateComps year]];
     }
-    
     
     //End of scrolling
     if(indexPath.row == [self.posts count]-1) {

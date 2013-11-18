@@ -113,6 +113,7 @@
                  withAccount:account
       sendingProgressHandler:nil
              responseHandler:handler];
+        
     }
     
     else
@@ -265,7 +266,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [self.tracks count];
     if ([self connected]) return [self.tracks count];
     else return 0;
 }
@@ -324,20 +324,6 @@
     else {
         cell.trackIllustration.image = [UIImage imageNamed:@"quark_up.png"];
     }
-    
-    NSString*waveFormURL=[track objectForKey:@"waveform_url"];
-    
-    if (!([waveFormURL isKindOfClass:[NSNull class]])) {
-        
-        [cell.trackWaveForm setImageWithURL:[NSURL URLWithString:waveFormURL]
-                               placeholderImage:[UIImage imageNamed:@"fxguEjG4ax6B_m.png"]];
-    }
-    
-    else {
-        cell.trackWaveForm.image = [UIImage imageNamed:@"fxguEjG4ax6B_m.png"];
-    }
-    
-    
     
     return cell;
 }

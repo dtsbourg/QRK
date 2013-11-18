@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="1217" y="-276"/>
         </scene>
-        <!--Table View Controller - More-->
+        <!--Personal Info View Controller - More-->
         <scene sceneID="6Sc-xR-N4T">
             <objects>
-                <tableViewController id="IWO-Xl-f7P" sceneMemberID="viewController">
+                <tableViewController id="IWO-Xl-f7P" customClass="SCTPersonalInfoViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LoK-WJ-v9c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +148,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Share this app" id="eNU-MC-84G">
+                            <tableViewSection headerTitle="Follow us" id="eNU-MC-84G">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="aDm-RX-yUb" imageView="fVJ-E9-6gF" style="IBUITableViewCellStyleDefault" id="Ubj-Pq-VhO">
                                         <rect key="frame" x="0.0" y="343" width="320" height="44"/>
@@ -241,6 +241,10 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="IWO-Xl-f7P" id="hsG-oC-XZx"/>
+                            <outlet property="delegate" destination="IWO-Xl-f7P" id="mRY-YZ-xcD"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="More" id="mE3-Vx-aaf">
                         <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="XlD-u2-MNa">

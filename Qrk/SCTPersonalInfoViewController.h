@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface SCTPersonalInfoViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SCTPersonalInfoViewController : UITableViewController
 
+@property (nonatomic, strong) NSDictionary* info;
 
 @end

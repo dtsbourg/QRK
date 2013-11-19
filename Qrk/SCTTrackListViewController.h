@@ -17,6 +17,7 @@
 @property (strong, nonatomic) AVAudioPlayer* player;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *accountSegment;
 @property (strong, nonatomic) AVQueuePlayer* queuePlayer;
+@property (strong, nonatomic) NSTimer *timer;
 
 -(BOOL) connected;
 @end

@@ -20,8 +20,10 @@
     NSString *resourceURL;
     NSArray* trackArray;
     NSInteger selectedIndex;
+    UIProgressView *progress;
 }
 
+@property float timerprogress;
 
 @end
 
@@ -30,6 +32,7 @@
 @synthesize tracks;
 @synthesize player;
 @synthesize queuePlayer;
+@synthesize timer;
 
 - (IBAction)swipeLeft:(id)sender {
     
@@ -341,10 +344,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
-    
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
     NSString *streamURL = [track objectForKey:@"stream_url"];
+    
+    SCTTrackCell *cell = (SCTTrackCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
+    progress = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleBar];
+    progress.frame = CGRectMake(118, 118, self.view.frame.size.width-118, 0);
+    progress.progress = 0.0f;
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+    
+    //progress.center = CGPointMake(23,21);
+    
+    [cell.contentView addSubview:progress];
     
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row,indexPath.row+2)];
     trackArray = [self.tracks objectsAtIndexes:indexSet];
@@ -367,13 +380,24 @@
                          player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                          [player setDelegate:self];
                          [player prepareToPlay];
-                         [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                          [player play];
                      }
                  });
              }];
 }
 
+- (void)timerTick:(NSTimer *)sender {
+    
+    double current = [self.player currentTime]; double total=[self.player duration];
+    if ((current > 0.0f) && (total > 0.0f) )
+    self.timerprogress = current/total;
+    [progress setProgress:self.timerprogress animated:YES];
+    
+    if (self.timerprogress== 1.0) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

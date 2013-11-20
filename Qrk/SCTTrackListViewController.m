@@ -34,19 +34,6 @@
 @synthesize queuePlayer;
 @synthesize timer;
 
-- (IBAction)swipeLeft:(id)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"Swipe"
-                          message:@"Direction Left"
-                          delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
-    [alert show];
-
-    
-}
-
 # pragma mark - View
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -352,10 +339,9 @@
     progress = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleBar];
     progress.frame = CGRectMake(118, 118, self.view.frame.size.width-118, 0);
     progress.progress = 0.0f;
+    progress.tintColor=UIColorFromRGB(0x067AB5);
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
-    
-    //progress.center = CGPointMake(23,21);
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
     
     [cell.contentView addSubview:progress];
     
@@ -384,6 +370,18 @@
                      }
                  });
              }];
+    if (player)
+    {
+        if ([player isPlaying])
+        {
+            [player pause];
+        }
+    
+        else
+        {
+            [player play];
+        }
+    }
 }
 
 - (void)timerTick:(NSTimer *)sender {
@@ -391,9 +389,10 @@
     double current = [self.player currentTime]; double total=[self.player duration];
     if ((current > 0.0f) && (total > 0.0f) )
     self.timerprogress = current/total;
+    
     [progress setProgress:self.timerprogress animated:YES];
     
-    if (self.timerprogress== 1.0) {
+    if (self.timerprogress == 1.0) {
         [self.timer invalidate];
         self.timer = nil;
     }

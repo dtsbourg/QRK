@@ -6,6 +6,8 @@ PODS:
     - JSONKit
     - OHAttributedLabel
   - CSColorizedProgressView (1.0)
+  - CSNotificationView (0.3.3)
+  - FlatUIKit (1.2)
   - JSONKit (1.5pre)
   - JXHTTP (1.0.0)
   - MRProgress (0.2.1)
@@ -36,6 +38,8 @@ DEPENDENCIES:
   - CocoaSoundCloudAPI (= 1.0.1)
   - CocoaSoundCloudUI (= 1.0.5)
   - CSColorizedProgressView (= 1.0)
+  - CSNotificationView
+  - FlatUIKit
   - MRProgress (~> 0.2)
   - SDWebImage (= 3.4)
   - TMTumblrSDK
@@ -44,6 +48,8 @@ SPEC CHECKSUMS:
   CocoaSoundCloudAPI: 71e8ac175772ed161bbff6f46f04b171136a8292
   CocoaSoundCloudUI: 7c145af797c4e9c4e5da34d211fd689020ecff86
   CSColorizedProgressView: 1b7e32c30c2e7c6880ca51524c4a2bdf3ddf81c5
+  CSNotificationView: f14352657afe7255be9fb2446eb99d5914b97b5d
+  FlatUIKit: 43b2acaa6f4ef57539b51b00e4ce62d506e33e11
   JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
   JXHTTP: 04f027e55c252d206cf3fcc2a2bde3914a35d842
   MRProgress: 28c146612cd5ceb30a16d06216028beab125d926

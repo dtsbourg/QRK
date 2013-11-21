@@ -1,0 +1,5 @@
+#include "Pods-FlatUIKit.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/FlatUIKit" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/CSColorizedProgressView" "${PODS_ROOT}/Headers/CSNotificationView" "${PODS_ROOT}/Headers/CocoaSoundCloudAPI" "${PODS_ROOT}/Headers/CocoaSoundCloudUI" "${PODS_ROOT}/Headers/FlatUIKit" "${PODS_ROOT}/Headers/JSONKit" "${PODS_ROOT}/Headers/JXHTTP" "${PODS_ROOT}/Headers/MRProgress" "${PODS_ROOT}/Headers/NSData+Base64" "${PODS_ROOT}/Headers/NXOAuth2Client" "${PODS_ROOT}/Headers/OHAttributedLabel" "${PODS_ROOT}/Headers/SDWebImage" "${PODS_ROOT}/Headers/TMTumblrSDK"
+OTHER_LDFLAGS = -ObjC ${PODS_FLATUIKIT_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}

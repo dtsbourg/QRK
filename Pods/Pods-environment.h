@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_CSColorizedProgressView 0
 #define COCOAPODS_VERSION_PATCH_CSColorizedProgressView 0
 
+// CSNotificationView
+#define COCOAPODS_POD_AVAILABLE_CSNotificationView
+#define COCOAPODS_VERSION_MAJOR_CSNotificationView 0
+#define COCOAPODS_VERSION_MINOR_CSNotificationView 3
+#define COCOAPODS_VERSION_PATCH_CSNotificationView 3
+
 // CocoaSoundCloudAPI
 #define COCOAPODS_POD_AVAILABLE_CocoaSoundCloudAPI
 #define COCOAPODS_VERSION_MAJOR_CocoaSoundCloudAPI 1
@@ -23,6 +29,12 @@
 #define COCOAPODS_VERSION_MAJOR_CocoaSoundCloudUI 1
 #define COCOAPODS_VERSION_MINOR_CocoaSoundCloudUI 0
 #define COCOAPODS_VERSION_PATCH_CocoaSoundCloudUI 5
+
+// FlatUIKit
+#define COCOAPODS_POD_AVAILABLE_FlatUIKit
+#define COCOAPODS_VERSION_MAJOR_FlatUIKit 1
+#define COCOAPODS_VERSION_MINOR_FlatUIKit 2
+#define COCOAPODS_VERSION_PATCH_FlatUIKit 0
 
 // JSONKit
 #define COCOAPODS_POD_AVAILABLE_JSONKit

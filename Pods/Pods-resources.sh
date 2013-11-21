@@ -39,7 +39,21 @@ install_resource()
       ;;
   esac
 }
+install_resource "CSNotificationView/CSNotificationView/CSNotificationView.xcassets/CSNotificationView_checkmarkIcon.imageset/CSNotificationView_checkmarkIcon.png"
+install_resource "CSNotificationView/CSNotificationView/CSNotificationView.xcassets/CSNotificationView_checkmarkIcon.imageset/CSNotificationView_checkmarkIcon@2x.png"
+install_resource "CSNotificationView/CSNotificationView/CSNotificationView.xcassets/CSNotificationView_exclamationMarkIcon.imageset/CSNotificationView_exclamationMarkIcon.png"
+install_resource "CSNotificationView/CSNotificationView/CSNotificationView.xcassets/CSNotificationView_exclamationMarkIcon.imageset/CSNotificationView_exclamationMarkIcon@2x.png"
 install_resource "CocoaSoundCloudUI/SoundCloud.bundle"
+install_resource "FlatUIKit/Resources/Lato-Black.ttf"
+install_resource "FlatUIKit/Resources/Lato-BlackItalic.ttf"
+install_resource "FlatUIKit/Resources/Lato-Bold.ttf"
+install_resource "FlatUIKit/Resources/Lato-BoldItalic.ttf"
+install_resource "FlatUIKit/Resources/Lato-Hairline.ttf"
+install_resource "FlatUIKit/Resources/Lato-HairlineItalic.ttf"
+install_resource "FlatUIKit/Resources/Lato-Italic.ttf"
+install_resource "FlatUIKit/Resources/Lato-Light.ttf"
+install_resource "FlatUIKit/Resources/Lato-LightItalic.ttf"
+install_resource "FlatUIKit/Resources/Lato-Regular.ttf"
 install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr.png"
 install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr@2x.png"
 install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr@2x~ipad.png"

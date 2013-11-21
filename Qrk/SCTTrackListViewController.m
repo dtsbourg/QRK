@@ -12,6 +12,9 @@
 #import "MRProgress.h"
 #import "Reachability.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FlatUIKit.h"
+#import "CSNotificationView.h"
+
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -362,24 +365,38 @@
                     
                      NSError *playerError;
                      
-                     if (player==nil) {
-                         player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
-                         [player setDelegate:self];
-                         [player prepareToPlay];
-                         [player play];
-                     }
+                     player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
+                     [player setDelegate:self];
+                     [player prepareToPlay];
+                     [player play];
                  });
              }];
+    
     if (player)
     {
+        //CSNotificationView *playPause =[[CSNotificationView alloc]init];
+        //Add condition : changed song
         if ([player isPlaying])
         {
             [player pause];
+            //playPause.image=[UIImage imageNamed:@"media-pause.png"];
+            [CSNotificationView showInViewController:self
+                                               style:CSNotificationViewStyleError
+                                             message:[NSString stringWithFormat:@"Paused %@", cell.trackName.text]];
+            
+            
         }
     
+        
         else
         {
             [player play];
+            //Resize or else...
+             //playPause.image=[UIImage imageNamed:@"PlayButton03Flat.png"];
+            [CSNotificationView showInViewController:self
+                                               style:CSNotificationViewStyleSuccess
+                                             message:[NSString stringWithFormat:@"Playing %@", cell.trackName.text]];
+        
         }
     }
 }

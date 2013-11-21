@@ -9,12 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CSNotificationView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CocoaSoundCloudAPI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-CocoaSoundCloudUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FlatUIKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,62 +77,72 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04533CBCD7194C7C8636F984</key>
+		<key>00888573BE874AE3833B2AEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>06DE128B0DE04B74A6EF08E5</key>
+		<key>0704149540604A30B4C992F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>17ED51C9D2C44393AEF13271</key>
+		<key>13819AE680304CB8AE0646C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B2ACAA7144A4D5E8950373B</key>
+		<key>4607A51447124490AC0CB5B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D12F8ECC0B44134B396118C</key>
+		<key>83B5723BC2C24718B070B97D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2147D6E7EC334678B392F6D5</key>
+		<key>9B58C579C03749459470E9AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>280A057CB9164618AB410D4A</key>
+		<key>B50B736B20E944A799A14C0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96288CFEA5254EB693C8B36D</key>
+		<key>CC1BA2AD38394B3BA0B5E452</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE3494E694A343C286BFA34E</key>
+		<key>D3E170BA72604261A73F6F58</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E02C84E2ACDE46A490945486</key>
+		<key>DBA3811A116044DD90D98966</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EEE3BF13281B42A78AFC6E6C</key>
+		<key>DFF0EC586C894524BDAAEAEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB51A0E1FB354BF59D7AA650</key>
+		<key>F027487EC8E84B2BB7AB750D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB81CA31A95E4CE9BFAD0728</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC0AAA1C2CEB441AA121F94F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

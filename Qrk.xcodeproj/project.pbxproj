@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00B140AFDEA74C5982DA4003 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 885CEE6E5C85475082B3F0D0 /* libPods.a */; };
+		FC176A2F183E7998007C7309 /* media-pause.png in Resources */ = {isa = PBXBuildFile; fileRef = FC176A2A183E7998007C7309 /* media-pause.png */; };
+		FC176A30183E7998007C7309 /* videoPlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FC176A2B183E7998007C7309 /* videoPlayButton.png */; };
+		FC176A31183E7998007C7309 /* PlayButton512.png in Resources */ = {isa = PBXBuildFile; fileRef = FC176A2C183E7998007C7309 /* PlayButton512.png */; };
+		FC176A33183E7998007C7309 /* PlayButton03Flat.png in Resources */ = {isa = PBXBuildFile; fileRef = FC176A2E183E7998007C7309 /* PlayButton03Flat.png */; };
 		FC23D2DC181442F600C23DEE /* quark_up.png in Resources */ = {isa = PBXBuildFile; fileRef = FC23D2DB181442F600C23DEE /* quark_up.png */; };
 		FC23D2E3181443BF00C23DEE /* QUP_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FC23D2E2181443BF00C23DEE /* QUP_icon.png */; };
 		FC23D2E51814444F00C23DEE /* quark_up_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = FC23D2E41814444F00C23DEE /* quark_up_launch.png */; };
@@ -152,6 +156,10 @@
 /* Begin PBXFileReference section */
 		885CEE6E5C85475082B3F0D0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2DB17C79AD4BBE8C326A2B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FC176A2A183E7998007C7309 /* media-pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-pause.png"; sourceTree = "<group>"; };
+		FC176A2B183E7998007C7309 /* videoPlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videoPlayButton.png; sourceTree = "<group>"; };
+		FC176A2C183E7998007C7309 /* PlayButton512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButton512.png; sourceTree = "<group>"; };
+		FC176A2E183E7998007C7309 /* PlayButton03Flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButton03Flat.png; sourceTree = "<group>"; };
 		FC23D2DB181442F600C23DEE /* quark_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quark_up.png; path = ../quark_up.png; sourceTree = "<group>"; };
 		FC23D2E2181443BF00C23DEE /* QUP_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QUP_icon.png; path = ../QUP_icon.png; sourceTree = "<group>"; };
 		FC23D2E41814444F00C23DEE /* quark_up_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quark_up_launch.png; path = ../quark_up_launch.png; sourceTree = "<group>"; };
@@ -332,6 +340,10 @@
 		FC23D2E11814431200C23DEE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FC176A2A183E7998007C7309 /* media-pause.png */,
+				FC176A2B183E7998007C7309 /* videoPlayButton.png */,
+				FC176A2C183E7998007C7309 /* PlayButton512.png */,
+				FC176A2E183E7998007C7309 /* PlayButton03Flat.png */,
 				FC99DF3A18337D100086F833 /* fxguEjG4ax6B_m.png */,
 				FC96A496182EB11A0038A5DE /* quark_up_banner.png */,
 				FC23D2E2181443BF00C23DEE /* QUP_icon.png */,
@@ -713,10 +725,12 @@
 				FC2C8C331829907E00AAC62D /* ipad.png in Resources */,
 				FC2C8C781829908A00AAC62D /* cancelUpload.png in Resources */,
 				FC2C8C3F1829907E00AAC62D /* retry.png in Resources */,
+				FC176A33183E7998007C7309 /* PlayButton03Flat.png in Resources */,
 				FC2C8C491829907E00AAC62D /* service_tumblr.png in Resources */,
 				FC2C8C7C1829908A00AAC62D /* cloud.png in Resources */,
 				FC2C8C571829907E00AAC62D /* switch_slider.png in Resources */,
 				FC2C8C7A1829908A00AAC62D /* close.png in Resources */,
+				FC176A2F183E7998007C7309 /* media-pause.png in Resources */,
 				FCA30595180DDD51001C5EE8 /* 194-note-2.png in Resources */,
 				FCA30593180DDD30001C5EE8 /* 145-persondot.png in Resources */,
 				FC2C8C3B1829907E00AAC62D /* reload.png in Resources */,
@@ -728,6 +742,7 @@
 				FC2C8C391829907E00AAC62D /* orange_header_logo.png in Resources */,
 				FC2C8C701829908A00AAC62D /* add-image.png in Resources */,
 				FC2C8C2D1829907E00AAC62D /* facebook.png in Resources */,
+				FC176A31183E7998007C7309 /* PlayButton512.png in Resources */,
 				FC2C8C721829908A00AAC62D /* appstore.png in Resources */,
 				FC2C8C7E1829908A00AAC62D /* connecttosc.png in Resources */,
 				FCA30579180DDC3F001C5EE8 /* 12-eye.png in Resources */,
@@ -803,6 +818,7 @@
 				FC2C8C831829908A00AAC62D /* darkTexturedBackgroundPattern@2x.png in Resources */,
 				FCA30580180DDC70001C5EE8 /* 28-star.png in Resources */,
 				FC2C8C371829907E00AAC62D /* open-bg.png in Resources */,
+				FC176A30183E7998007C7309 /* videoPlayButton.png in Resources */,
 				FC2C8C811829908A00AAC62D /* continue@2x.png in Resources */,
 				FCA3058D180DDCE9001C5EE8 /* 112-group.png in Resources */,
 				FC2C8C411829907E00AAC62D /* service_facebook_page.png in Resources */,

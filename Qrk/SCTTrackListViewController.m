@@ -27,6 +27,7 @@
 }
 
 @property float timerprogress;
+@property (nonatomic) bool isAscending;
 
 @end
 
@@ -54,6 +55,8 @@
     
     if ([self connected]) {
     [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+        
+    self.isAscending=YES;
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     self.navigationController.navigationBar.translucent=NO;
@@ -130,6 +133,10 @@
         [alert show];
     }
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(getTracks:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    
     // Uncomment the following line to preserve selection between presentations.
      self.clearsSelectionOnViewWillAppear = NO;
  
@@ -172,6 +179,7 @@
 #pragma mark - Audio player
 
 - (IBAction)getTracks:(id)sender {
+    
     
     if ([self connected]) {
         [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
@@ -227,6 +235,8 @@
         [alert show];
     }
     
+    self.isAscending=!self.isAscending;
+    [self.refreshControl endRefreshing];
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
@@ -362,7 +372,6 @@
              responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
-                    
                      NSError *playerError;
                      
                      player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];

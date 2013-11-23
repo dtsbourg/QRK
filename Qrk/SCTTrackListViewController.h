@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *accountSegment;
 @property (strong, nonatomic) AVQueuePlayer* queuePlayer;
 @property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem* shareButton;
 
 -(BOOL) connected;
 @end

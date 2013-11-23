@@ -67,6 +67,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <connections>
                 <outlet property="trackArtist" destination="vWO-I5-hvZ" id="NTd-1y-6Ki"/>
                 <outlet property="trackBPM" destination="sUh-oT-O6r" id="6on-0e-M3u"/>

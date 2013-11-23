@@ -24,6 +24,7 @@
     NSArray* trackArray;
     NSInteger selectedIndex;
     UIProgressView *progress;
+    NSMutableDictionary *selectedSong;
 }
 
 @property float timerprogress;
@@ -37,6 +38,7 @@
 @synthesize player;
 @synthesize queuePlayer;
 @synthesize timer;
+@synthesize shareButton;
 
 # pragma mark - View
 
@@ -176,6 +178,29 @@
     return !(networkStatus == NotReachable);
 }
 
+- (IBAction)like:(id)sender {
+}
+
+
+- (IBAction)share:(id)sender {
+    
+    NSArray *activityItems;
+    
+    if (selectedSong) {
+        activityItems = [NSArray arrayWithObjects:[selectedSong objectForKey:@"name"], [selectedSong objectForKey:@"artist"], [NSURL URLWithString:[selectedSong objectForKey:@"link"]], nil];
+    }
+    else {
+        
+        activityItems = @[@"Check out this sweet-ass app"];
+    }
+    
+    UIActivityViewController *avc = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
+    avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeMessage,
+                                  UIActivityTypeSaveToCameraRoll, UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeAirDrop];
+    
+    [self presentViewController:avc animated:YES completion:nil];
+}
+
 #pragma mark - Audio player
 
 - (IBAction)getTracks:(id)sender {
@@ -310,7 +335,7 @@
     }
     
     //TRACK BPM
-    NSInteger bpm=100;
+    uint16_t bpm=100;
     if ([[NSString stringWithFormat:@"%@",[track objectForKey:@"bpm"]] isEqualToString:@"<null>"]) {
         cell.trackBPM.text=[NSString stringWithFormat:@"%i",bpm+(rand()%27)];
     }
@@ -374,6 +399,10 @@
                  dispatch_async(dispatch_get_main_queue(), ^{
                      NSError *playerError;
                      
+                     [selectedSong setObject:[NSString stringWithFormat:@"%@", streamURL] forKey:@"link"];
+                     [selectedSong setObject:[NSString stringWithFormat:@"%@", cell.trackArtist.text] forKey:@"artist"];
+                     [selectedSong setObject:[NSString stringWithFormat:@"%@", cell.trackName.text] forKey:@"name"];
+                     
                      player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                      [player setDelegate:self];
                      [player prepareToPlay];
@@ -392,7 +421,6 @@
             [CSNotificationView showInViewController:self
                                                style:CSNotificationViewStyleError
                                              message:[NSString stringWithFormat:@"Paused %@", cell.trackName.text]];
-            
             
         }
     

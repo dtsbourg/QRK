@@ -328,16 +328,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="QRK" id="RZW-ch-IUV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="oTb-nk-gju">
+                        <barButtonItem key="leftBarButtonItem" image="112-group.png" id="cf2-Fh-h70">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="getTracks:" destination="MbT-zN-4HA" id="2Gi-AQ-7J4"/>
+                                <action selector="share:" destination="MbT-zN-4HA" id="P0U-9y-Z3B"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="29-heart.png" id="b9G-Kp-LbZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="like:" destination="MbT-zN-4HA" id="oYp-8A-D5z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="accountSegment" destination="XQb-NR-Agn" id="OHx-lv-Lss"/>
+                        <outlet property="shareButton" destination="cf2-Fh-h70" id="KIz-wu-5zt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AU-zL-LU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -383,7 +390,9 @@
     <resources>
         <image name="106-sliders.png" width="24" height="24"/>
         <image name="111-user.png" width="24" height="21"/>
+        <image name="112-group.png" width="32" height="21"/>
         <image name="124-bullhorn.png" width="24" height="17"/>
+        <image name="29-heart.png" width="24" height="21"/>
         <image name="77-ekg.png" width="26" height="22"/>
         <image name="cancel_dark.png" width="28" height="28"/>
         <image name="service_facebook_page.png" width="19" height="19"/>

@@ -76,15 +76,12 @@
     if ([self connected]) {
         [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         
-        
         self.tabBarController.tabBar.tintColor=UIColorFromRGB(0x067AB5);
         self.tabBarController.tabBar.translucent=NO;
         [self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
         
-        
         [TMAPIClient sharedInstance].OAuthConsumerKey=@"PFNVtb9DgmvdLwt43vK3f3zQai0bSLEmyz07A9cr7Do1xlIJ3D";
         [TMAPIClient sharedInstance].OAuthConsumerSecret=@"pyARG8a2xedThyL1I5zTHDRQUgDLJmAWRaqywbiqQ6cSWMvyAe";
-        
         
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
@@ -290,6 +287,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+      
     return 500;
 }
 

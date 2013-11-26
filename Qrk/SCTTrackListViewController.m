@@ -57,7 +57,7 @@
     
     if ([self connected]) {
     [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
-        
+            
     self.isAscending=YES;
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
@@ -190,7 +190,6 @@
         activityItems = [NSArray arrayWithObjects:[selectedSong objectForKey:@"name"], [selectedSong objectForKey:@"artist"], [NSURL URLWithString:[selectedSong objectForKey:@"link"]], nil];
     }
     else {
-        
         activityItems = @[@"Check out this sweet-ass app"];
     }
     
@@ -204,7 +203,6 @@
 #pragma mark - Audio player
 
 - (IBAction)getTracks:(id)sender {
-    
     
     if ([self connected]) {
         [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
@@ -266,7 +264,7 @@
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    
+    progress.progress = 0.0f;
     NSDictionary *track = [trackArray objectAtIndex:selectedIndex];
     NSString *streamURL = [track objectForKey:@"stream_url"];
     
@@ -399,10 +397,6 @@
                  dispatch_async(dispatch_get_main_queue(), ^{
                      NSError *playerError;
                      
-                     [selectedSong setObject:[NSString stringWithFormat:@"%@", streamURL] forKey:@"link"];
-                     [selectedSong setObject:[NSString stringWithFormat:@"%@", cell.trackArtist.text] forKey:@"artist"];
-                     [selectedSong setObject:[NSString stringWithFormat:@"%@", cell.trackName.text] forKey:@"name"];
-                     
                      player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                      [player setDelegate:self];
                      [player prepareToPlay];
@@ -421,7 +415,6 @@
             [CSNotificationView showInViewController:self
                                                style:CSNotificationViewStyleError
                                              message:[NSString stringWithFormat:@"Paused %@", cell.trackName.text]];
-            
         }
     
         

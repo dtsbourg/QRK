@@ -156,13 +156,11 @@
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
     if (selectedSegment == 0) {
-        //toggle the correct view to be visible
         [self.accountSegment setSelectedSegmentIndex:0];
         resourceURL = @"https://api.soundcloud.com/me/favorites.json";
         [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
     }
     else{
-        //toggle the correct view to be visible
         resourceURL = @"https://api.soundcloud.com/users/gramatik/favorites.json";
         [self.accountSegment setSelectedSegmentIndex:1];
         [self performSelector: @selector(getTracks:) withObject:self afterDelay: 0.0];
@@ -186,13 +184,8 @@
     
     NSArray *activityItems;
     
-    if (selectedSong) {
-        activityItems = [NSArray arrayWithObjects:[selectedSong objectForKey:@"name"], [selectedSong objectForKey:@"artist"], [NSURL URLWithString:[selectedSong objectForKey:@"link"]], nil];
-    }
-    else {
-        activityItems = @[@"Check out this sweet-ass app"];
-    }
-    
+    activityItems = @[@"Check out this sweet-ass app"];
+        
     UIActivityViewController *avc = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
     avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeMessage,
                                   UIActivityTypeSaveToCameraRoll, UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeAirDrop];
@@ -230,7 +223,6 @@
             if (!jsonError) {
                 self.tracks = (NSArray *)jsonResponse;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    
                     [self.tableView reloadData];
                     [MRProgressOverlayView dismissOverlayForView:self.view animated:YES];
                 });
@@ -249,7 +241,6 @@
     }
     
     else {
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to connect"
                                                         message:@"Please check your connection to use Qrk"
                                                        delegate:self
@@ -276,9 +267,7 @@
                  withAccount:account
       sendingProgressHandler:nil
              responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 
                  dispatch_async(dispatch_get_main_queue(), ^{
-                     
                     self.player = [[AVAudioPlayer alloc] initWithData:data error:nil];
                     [self.player setDelegate:self];
                     [self.player prepareToPlay];
@@ -324,22 +313,15 @@
     //TRACK PLAYS
     NSInteger plays=[[track objectForKey:@"playback_count"]integerValue];
     
-    if (plays >= 1000) {
-        cell.trackPlays.text =[NSString stringWithFormat:@"%.01f K",plays/1000.];
-    }
+    if (plays >= 1000) cell.trackPlays.text =[NSString stringWithFormat:@"%.01f K",plays/1000.];
 
-    else {
-        cell.trackPlays.text =[NSString stringWithFormat:@"%@",[track objectForKey:@"playback_count"]];
-    }
+    else cell.trackPlays.text =[NSString stringWithFormat:@"%@",[track objectForKey:@"playback_count"]];
     
     //TRACK BPM
     uint16_t bpm=100;
-    if ([[NSString stringWithFormat:@"%@",[track objectForKey:@"bpm"]] isEqualToString:@"<null>"]) {
-        cell.trackBPM.text=[NSString stringWithFormat:@"%i",bpm+(rand()%27)];
-    }
-    else {
-        cell.trackBPM.text=[NSString stringWithFormat:@"%@",[track objectForKey:@"bpm"]];
-    }
+    if ([[NSString stringWithFormat:@"%@",[track objectForKey:@"bpm"]] isEqualToString:@"<null>"]) cell.trackBPM.text=[NSString stringWithFormat:@"%i",bpm+(rand()%27)];
+
+    else cell.trackBPM.text=[NSString stringWithFormat:@"%@",[track objectForKey:@"bpm"]];
     
     cell.trackName.text = [track objectForKey:@"title"];
     [cell.trackName setLineBreakMode:NSLineBreakByWordWrapping];
@@ -350,16 +332,11 @@
     
     //TRACK ILLUSTRATION
     NSString*artworkURL=[track objectForKey:@"artwork_url"];
-    
-    if (!([artworkURL isKindOfClass:[NSNull class]])) {
-        
-            [cell.trackIllustration setImageWithURL:[NSURL URLWithString:artworkURL]
+    if (!([artworkURL isKindOfClass:[NSNull class]]))
+        [cell.trackIllustration setImageWithURL:[NSURL URLWithString:artworkURL]
                            placeholderImage:[UIImage imageNamed:@"quark_up.png"]];
-    }
     
-    else {
-        cell.trackIllustration.image = [UIImage imageNamed:@"quark_up.png"];
-    }
+    else cell.trackIllustration.image = [UIImage imageNamed:@"quark_up.png"];
     
     return cell;
 }
@@ -396,7 +373,6 @@
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
                      NSError *playerError;
-                     
                      player = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                      [player setDelegate:self];
                      [player prepareToPlay];

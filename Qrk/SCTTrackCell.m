@@ -8,6 +8,7 @@
 
 #import "SCTTrackCell.h"
 #import "SCTAppDelegate.h"
+#import "SCUI.h"
 
 @implementation SCTTrackCell
 
@@ -36,28 +37,38 @@
 - (IBAction)shareTap:(UIGestureRecognizer*)sender
 {
     
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"Tweeting from my own app! :)"];
-        
-        UITableView *tv = (UITableView *) self.superview.superview;
-        UITableViewController *vc = (UITableViewController *) tv.dataSource;
-        [vc presentViewController:tweetSheet animated:YES completion:nil];
+    SCAccount *account = [SCSoundCloud account];
+    
+    if (account == nil) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Not Logged In"
+                              message:@"You must login first"
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+        return;
     }
     
-    else
+    SCRequestResponseHandler handler;
+    
+    handler = ^(NSURLResponse *response, NSData *data, NSError *error)
     {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Sorry"
-                                  message:@"You can't send a tweet right now, make sure"
-                                  "your device has an internet connection and you have"
-                                  " at least one Twitter account setup"
-                                  delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
+        
+        NSError *jsonError = nil;
+        NSJSONSerialization *jsonResponse = [NSJSONSerialization
+                                             JSONObjectWithData:data
+                                             options:0
+                                             error:&jsonError];
+        
+    };
+    
+    [SCRequest performMethod:SCRequestMethodPUT
+                  onResource:[NSURL URLWithString:[NSURL URLWithString:@"https://api.soundcloud.com/me/favorites.json"]]
+             usingParameters:nil
+                 withAccount:account
+      sendingProgressHandler:nil
+             responseHandler:handler];
 
 }
 

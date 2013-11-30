@@ -170,6 +170,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="NjG-uP-C0d" kind="push" identifier="facebookSegue" id="Zt8-XK-37X"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="45N-ho-KDv" imageView="t0f-QS-BjX" style="IBUITableViewCellStyleDefault" id="Fly-Q4-2NK">
                                         <rect key="frame" x="0.0" y="387" width="320" height="44"/>
@@ -191,6 +194,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="NjG-uP-C0d" kind="push" identifier="tumblrSegue" trigger="accessoryAction" id="qvl-la-ym2"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qyh-23-KJC" imageView="aBv-5G-NlW" style="IBUITableViewCellStyleDefault" id="t3u-Tg-uH8">
                                         <rect key="frame" x="0.0" y="431" width="320" height="44"/>
@@ -212,6 +218,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="NjG-uP-C0d" kind="push" identifier="twitterSegue" id="PHY-T1-QkW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -258,6 +267,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HmM-LQ-CGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2223" y="-275"/>
+        </scene>
+        <!--Detail View Controller - Title-->
+        <scene sceneID="pts-y9-0fQ">
+            <objects>
+                <viewController id="NjG-uP-C0d" customClass="SCTDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wVD-4S-26e"/>
+                        <viewControllerLayoutGuide type="bottom" id="WQ2-aG-S83"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G4r-kg-4fQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6z-cc-saG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NjG-uP-C0d" id="1wb-UU-bMq"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="oNX-Uz-dgm">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="MH7-6c-yoY"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="webView" destination="X6z-cc-saG" id="8dr-wl-BaZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WeC-3S-WMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2715" y="-275"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gO1-kM-0xK">
@@ -405,4 +449,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zt8-XK-37X"/>
+    </inferredMetricsTieBreakers>
 </document>

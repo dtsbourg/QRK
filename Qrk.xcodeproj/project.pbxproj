@@ -122,6 +122,7 @@
 		FCA305B2181037FF001C5EE8 /* jorisd.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA305B1181037FF001C5EE8 /* jorisd.png */; };
 		FCD5B72F1829357500AD3D1F /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B72E1829357500AD3D1F /* NSString+HTML.m */; };
 		FCD5B7331829843900AD3D1F /* SCTPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B7311829843900AD3D1F /* SCTPersonalInfoViewController.m */; };
+		FCF7C6D1184A3E46008311E6 /* SCTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF7C6D0184A3E46008311E6 /* SCTDetailViewController.m */; };
 		FCFA3B0F180C98D800484DE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B0E180C98D800484DE4 /* Foundation.framework */; };
 		FCFA3B11180C98D800484DE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B10180C98D800484DE4 /* CoreGraphics.framework */; };
 		FCFA3B13180C98D800484DE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFA3B12180C98D800484DE4 /* UIKit.framework */; };
@@ -278,6 +279,8 @@
 		FCD5B72E1829357500AD3D1F /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		FCD5B7301829843900AD3D1F /* SCTPersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTPersonalInfoViewController.h; sourceTree = "<group>"; };
 		FCD5B7311829843900AD3D1F /* SCTPersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTPersonalInfoViewController.m; sourceTree = "<group>"; };
+		FCF7C6CF184A3E46008311E6 /* SCTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTDetailViewController.h; sourceTree = "<group>"; };
+		FCF7C6D0184A3E46008311E6 /* SCTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTDetailViewController.m; sourceTree = "<group>"; };
 		FCFA3B0B180C98D800484DE4 /* Qrk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qrk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFA3B0E180C98D800484DE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFA3B10180C98D800484DE4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -360,6 +363,8 @@
 			children = (
 				FCD5B7301829843900AD3D1F /* SCTPersonalInfoViewController.h */,
 				FCD5B7311829843900AD3D1F /* SCTPersonalInfoViewController.m */,
+				FCF7C6CF184A3E46008311E6 /* SCTDetailViewController.h */,
+				FCF7C6D0184A3E46008311E6 /* SCTDetailViewController.m */,
 			);
 			name = "Settings and more";
 			sourceTree = "<group>";
@@ -881,6 +886,7 @@
 				FCFA3B1B180C98D800484DE4 /* main.m in Sources */,
 				FCA305A8181004B6001C5EE8 /* SCTFeedViewController.m in Sources */,
 				FCA30565180C9C2D001C5EE8 /* SCTTrackListViewController.m in Sources */,
+				FCF7C6D1184A3E46008311E6 /* SCTDetailViewController.m in Sources */,
 				FC96A494182D89C10038A5DE /* SCTSubmissionViewController.m in Sources */,
 				FCD5B72F1829357500AD3D1F /* NSString+HTML.m in Sources */,
 				FCA305A5181000FD001C5EE8 /* SCTViewCell.m in Sources */,

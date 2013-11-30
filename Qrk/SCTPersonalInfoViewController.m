@@ -8,6 +8,7 @@
 
 #import "SCTPersonalInfoViewController.h"
 #import "SCUI.h"
+#import "SCTDetailViewController.h"
 
 @interface SCTPersonalInfoViewController () 
 @end
@@ -170,6 +171,54 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                NSLog(@"facebook");
+                [self performSegueWithIdentifier:@"facebookSegue" sender:nil];
+                NSLog(@"facebook");
+                break;
+                
+            case 1:
+                [self performSegueWithIdentifier:@"tumblrSegue" sender:nil];
+                NSLog(@"tumblr");
+                break;
+            
+            case 2:
+                [self performSegueWithIdentifier:@"twitterSegue" sender:nil];
+                NSLog(@"twitter");
+                break;
+            
+        }
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"facebookSegue"]) {
+        NSLog(@"2%@", [segue identifier]);
+        
+        NSString *string = @"https://www.facebook.com/quarkup1";
+        SCTDetailViewController *dest = [segue destinationViewController];
+        dest.url = string;
+    }
+    
+    else if ([[segue identifier] isEqualToString:@"tumblrSegue"]) {
+        NSLog(@"2%@", [segue identifier]);
+        NSString *string = @"http://quark-up.tumblr.com";
+        SCTDetailViewController *dest = [segue destinationViewController];
+        dest.url = string;
+    }
+    
+    else if ([[segue identifier] isEqualToString:@"twitterSegue"]) {
+        NSLog(@"2%@", [segue identifier]);
+        NSString *string = @"https://twitter.com/QuarkUpBlog";
+        SCTDetailViewController *dest = [segue destinationViewController];
+        dest.url = string;
+    }
+}
 
 
 @end

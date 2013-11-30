@@ -8,21 +8,8 @@
 
 #import "SCTSubmissionViewController.h"
 
-const static CGFloat kJVFieldHeight = 44.0f;
-const static CGFloat kJVFieldHMargin = 10.0f;
 
-const static CGFloat kJVFieldFontSize = 16.0f;
-
-const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
-
-@interface SCTSubmissionViewController () {
-    NSString *trackTitle;
-    NSString *trackArtist;
-    NSString *comment;
-    NSString *location;
-    NSString *trackLink;
-    
-}
+@interface SCTSubmissionViewController ()
 
 @end
 
@@ -60,8 +47,8 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
                              "<li> Title :  </li> \n"
                              "<li> Artist :  </li> \n"
                              "<li> Comment : </li> \n"
-                             "<li> Link : %@ </li> \n"
-                             "</ul>", trackLink];
+                             "<li> Link : </li> \n"
+                             "</ul>"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;

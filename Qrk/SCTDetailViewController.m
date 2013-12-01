@@ -19,13 +19,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSURL *myURL = [NSURL URLWithString:[self.url stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-        
-        NSURLRequest *request = [NSURLRequest requestWithURL:myURL];
-        
-        [self.webView loadRequest:request];
-        self.title = @" ";
-
     }
     return self;
 }

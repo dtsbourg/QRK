@@ -150,7 +150,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Follow us" id="eNU-MC-84G">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="aDm-RX-yUb" imageView="fVJ-E9-6gF" style="IBUITableViewCellStyleDefault" id="Ubj-Pq-VhO">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="aDm-RX-yUb" imageView="fVJ-E9-6gF" style="IBUITableViewCellStyleDefault" id="Ubj-Pq-VhO">
                                         <rect key="frame" x="0.0" y="343" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ubj-Pq-VhO" id="5GM-qN-DZY">
@@ -174,7 +174,7 @@
                                             <segue destination="NjG-uP-C0d" kind="push" identifier="facebookSegue" id="Zt8-XK-37X"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="45N-ho-KDv" imageView="t0f-QS-BjX" style="IBUITableViewCellStyleDefault" id="Fly-Q4-2NK">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="45N-ho-KDv" imageView="t0f-QS-BjX" style="IBUITableViewCellStyleDefault" id="Fly-Q4-2NK">
                                         <rect key="frame" x="0.0" y="387" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fly-Q4-2NK" id="maz-x4-iOS">
@@ -198,7 +198,7 @@
                                             <segue destination="NjG-uP-C0d" kind="push" identifier="tumblrSegue" trigger="accessoryAction" id="qvl-la-ym2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qyh-23-KJC" imageView="aBv-5G-NlW" style="IBUITableViewCellStyleDefault" id="t3u-Tg-uH8">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="qyh-23-KJC" imageView="aBv-5G-NlW" style="IBUITableViewCellStyleDefault" id="t3u-Tg-uH8">
                                         <rect key="frame" x="0.0" y="431" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t3u-Tg-uH8" id="s27-Lp-ZQI">
